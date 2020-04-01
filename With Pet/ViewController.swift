@@ -6,6 +6,8 @@
 //  Copyright © 2020 com.sg. All rights reserved.
 //
 
+/* To do - 키보드 내리기 기능 추가하기 */
+
 import UIKit
 import Firebase
 import FirebaseAuth
@@ -20,9 +22,12 @@ class ViewController: UIViewController {
     // 앱이 처음 로드될때
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         navigationController?.navigationBar.isHidden = true // 네비게이션 바 숨기기
-        
+    }
+    
+    // 앱이 RE 로드될때
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true // 네비게이션 바 숨기기
     }
     
      //Login 클릭할시 ->

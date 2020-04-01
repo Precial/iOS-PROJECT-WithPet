@@ -6,8 +6,10 @@
 //  Copyright © 2020 com.sg. All rights reserved.
 //
 
-
+/* To do - 아이디 및 비밀번호 미 입력시 입력 안내 문구 표시 */
 /* To do - 아이디 및 비밀번호 입력시 글자 수 제한 및 기타 예외처리 하기. */
+/* To do - 로그아웃시 네이게이션 탭바 다시 제거하기  */
+
 
 import UIKit
 import Firebase

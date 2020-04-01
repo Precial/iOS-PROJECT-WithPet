@@ -6,6 +6,7 @@
 //  Copyright © 2020 com.sg. All rights reserved.
 //
 
+/* To do  - SMS 인증 추가 */
 /* To do  - 아이디 조회해서 없는 아이디 조회시 경고 알람 띄우기 */
 
 import UIKit
@@ -24,6 +25,7 @@ class PwResetViewController: UIViewController {
     
     // 비밀번호 재설정 버튼
     @IBAction func sendPwReset(_ sender: Any) {
+        Auth.auth().sendPasswordReset(withEmail: findID.text!)
        createUserMessage()
     }
     
