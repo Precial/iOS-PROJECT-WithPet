@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
@@ -25,7 +27,16 @@ class ViewController: UIViewController {
     
      //Login 클릭할시 ->
     @IBAction func loginButton(_ sender: Any) {
-        performSegue(withIdentifier: "loginNext", sender: self)
+        Auth.auth().signIn(withEmail: loginID.text!, password: loginPW.text!){
+            (user, error) in if user != nil {
+                print("로그인 성공")
+                self.performSegue(withIdentifier: "loginNext", sender: self)
+            } else {
+                print("로그인 불가")
+                self.loginFailMessage()
+            }
+        }
+     
     }
     
     
@@ -42,6 +53,15 @@ class ViewController: UIViewController {
     @IBAction func kakaoLoign(_ sender: Any) {
     }
     
+    // 로그인 실패 알람창 띄우기
+    func loginFailMessage() {
+         
+         let message = "아이디/ 비밀번호가 맞지 않습니다."
+                   let alert = UIAlertController(title: "로그인 실패", message: message, preferredStyle:.alert)
+                   let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+                      alert.addAction(action)
+                    present(alert,animated: true, completion: nil)
+     }
     
     
 }
