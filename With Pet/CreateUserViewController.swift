@@ -6,11 +6,14 @@
 //  Copyright © 2020 com.sg. All rights reserved.
 //
 
+
+/* To do - 아이디 및 비밀번호 입력시 글자 수 제한 및 기타 예외처리 하기. */
+
 import UIKit
 import Firebase
 import FirebaseAuth
 
-class CreateUserViewController: UIViewController {
+class CreateUserViewController: UIViewController, UITextFieldDelegate {
 
     // 회원가입 입력 inputTextbox 연결
     @IBOutlet weak var createID: UITextField!
@@ -26,6 +29,7 @@ class CreateUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
     
     // 가입하기 버튼 클릭시 ->
     @IBAction func createUser(_ sender: Any) {
@@ -36,6 +40,7 @@ class CreateUserViewController: UIViewController {
                         self.createTrue = true
                         self.createUserMessage(msg: self.createMessage)
                       } else {
+                            
                             self.createMessage = "이미 동일한 계정이 있습니다."
                             self.createTrue = false
                             self.createUserMessage(msg: self.createMessage)
@@ -58,7 +63,6 @@ class CreateUserViewController: UIViewController {
            let alert = UIAlertController(title: "", message: msg, preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "확인", style: .default){
                UIAlertAction in
-                
                 if self.createTrue {
                 self.navigationController?.popViewController(animated: true)
                 }
