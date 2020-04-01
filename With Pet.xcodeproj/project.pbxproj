@@ -13,6 +13,8 @@
 		0B20ED2924347EC300922E60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B20ED2724347EC300922E60 /* Main.storyboard */; };
 		0B20ED2B24347EC600922E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B20ED2A24347EC600922E60 /* Assets.xcassets */; };
 		0B20ED2E24347EC600922E60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B20ED2C24347EC600922E60 /* LaunchScreen.storyboard */; };
+		0B20ED36243485F700922E60 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20ED35243485F700922E60 /* CreateUserViewController.swift */; };
+		0B20ED3824348A8E00922E60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20ED3724348A8E00922E60 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0B20ED2A24347EC600922E60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B20ED2D24347EC600922E60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B20ED2F24347EC600922E60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B20ED35243485F700922E60 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		0B20ED3724348A8E00922E60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,9 @@
 				0B20ED2124347EC300922E60 /* AppDelegate.swift */,
 				0B20ED2324347EC300922E60 /* SceneDelegate.swift */,
 				0B20ED2524347EC300922E60 /* ViewController.swift */,
+				0B20ED3724348A8E00922E60 /* MainViewController.swift */,
 				0B20ED2724347EC300922E60 /* Main.storyboard */,
+				0B20ED35243485F700922E60 /* CreateUserViewController.swift */,
 				0B20ED2A24347EC600922E60 /* Assets.xcassets */,
 				0B20ED2C24347EC600922E60 /* LaunchScreen.storyboard */,
 				0B20ED2F24347EC600922E60 /* Info.plist */,
@@ -141,6 +147,8 @@
 				0B20ED2624347EC300922E60 /* ViewController.swift in Sources */,
 				0B20ED2224347EC300922E60 /* AppDelegate.swift in Sources */,
 				0B20ED2424347EC300922E60 /* SceneDelegate.swift in Sources */,
+				0B20ED36243485F700922E60 /* CreateUserViewController.swift in Sources */,
+				0B20ED3824348A8E00922E60 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
