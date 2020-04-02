@@ -10,15 +10,18 @@
 
 import UIKit
 
+
 class MainViewController: UIViewController {
 
+    // 로그인한 사용자명 표시
+    @IBOutlet weak var loginUser: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false // 네비게이션 바 숨기기
-        // Do any additional setup after loading the view.
     }
     
 
 
+    }
 
-}
