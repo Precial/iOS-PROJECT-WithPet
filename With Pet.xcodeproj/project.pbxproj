@@ -15,9 +15,9 @@
 		0B20ED2E24347EC600922E60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B20ED2C24347EC600922E60 /* LaunchScreen.storyboard */; };
 		0B20ED36243485F700922E60 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20ED35243485F700922E60 /* CreateUserViewController.swift */; };
 		0B20ED3824348A8E00922E60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20ED3724348A8E00922E60 /* MainViewController.swift */; };
-		0B4DE70824360555002AE08D /* ContentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE70724360555002AE08D /* ContentInfo.swift */; };
-		0B4DE70A243605C7002AE08D /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE709243605C7002AE08D /* ContentViewController.swift */; };
-		0B4DE70D24360758002AE08D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE70C24360758002AE08D /* DetailViewController.swift */; };
+		0B4DE73F2436BB69002AE08D /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE73E2436BB69002AE08D /* Content.swift */; };
+		0B4DE7412436BE72002AE08D /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE7402436BE72002AE08D /* ContentCollectionViewCell.swift */; };
+		0B4DE7452436BF68002AE08D /* ContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE7442436BF68002AE08D /* ContentCollectionViewController.swift */; };
 		0B6C7A922434959F00FC2E45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B6C7A912434959F00FC2E45 /* GoogleService-Info.plist */; };
 		0B6C7A962434B14E00FC2E45 /* PwResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C7A952434B14E00FC2E45 /* PwResetViewController.swift */; };
 		600F2BC8647D0ABF37B357EE /* Pods_With_Pet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28942F42A8931536793814C5 /* Pods_With_Pet.framework */; };
@@ -34,9 +34,9 @@
 		0B20ED2F24347EC600922E60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B20ED35243485F700922E60 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		0B20ED3724348A8E00922E60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		0B4DE70724360555002AE08D /* ContentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInfo.swift; sourceTree = "<group>"; };
-		0B4DE709243605C7002AE08D /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		0B4DE70C24360758002AE08D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0B4DE73E2436BB69002AE08D /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		0B4DE7402436BE72002AE08D /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		0B4DE7442436BF68002AE08D /* ContentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewController.swift; sourceTree = "<group>"; };
 		0B6C7A912434959F00FC2E45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B6C7A952434B14E00FC2E45 /* PwResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwResetViewController.swift; sourceTree = "<group>"; };
 		239600CD82755A8F192A505F /* Pods-With Pet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-With Pet.debug.xcconfig"; path = "Target Support Files/Pods-With Pet/Pods-With Pet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,11 +82,11 @@
 				0B20ED2524347EC300922E60 /* ViewController.swift */,
 				0B20ED3724348A8E00922E60 /* MainViewController.swift */,
 				0B20ED2724347EC300922E60 /* Main.storyboard */,
+				0B4DE73E2436BB69002AE08D /* Content.swift */,
+				0B4DE7402436BE72002AE08D /* ContentCollectionViewCell.swift */,
+				0B4DE7442436BF68002AE08D /* ContentCollectionViewController.swift */,
 				0B6C7A952434B14E00FC2E45 /* PwResetViewController.swift */,
-				0B4DE70C24360758002AE08D /* DetailViewController.swift */,
 				0B20ED35243485F700922E60 /* CreateUserViewController.swift */,
-				0B4DE709243605C7002AE08D /* ContentViewController.swift */,
-				0B4DE70724360555002AE08D /* ContentInfo.swift */,
 				0B20ED2A24347EC600922E60 /* Assets.xcassets */,
 				0B20ED2C24347EC600922E60 /* LaunchScreen.storyboard */,
 				0B6C7A912434959F00FC2E45 /* GoogleService-Info.plist */,
@@ -228,14 +228,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B4DE70D24360758002AE08D /* DetailViewController.swift in Sources */,
 				0B20ED2624347EC300922E60 /* ViewController.swift in Sources */,
 				0B20ED2224347EC300922E60 /* AppDelegate.swift in Sources */,
 				0B20ED2424347EC300922E60 /* SceneDelegate.swift in Sources */,
+				0B4DE73F2436BB69002AE08D /* Content.swift in Sources */,
+				0B4DE7412436BE72002AE08D /* ContentCollectionViewCell.swift in Sources */,
 				0B20ED36243485F700922E60 /* CreateUserViewController.swift in Sources */,
 				0B20ED3824348A8E00922E60 /* MainViewController.swift in Sources */,
-				0B4DE70A243605C7002AE08D /* ContentViewController.swift in Sources */,
-				0B4DE70824360555002AE08D /* ContentInfo.swift in Sources */,
+				0B4DE7452436BF68002AE08D /* ContentCollectionViewController.swift in Sources */,
 				0B6C7A962434B14E00FC2E45 /* PwResetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
