@@ -12,6 +12,19 @@ class ContentCollectionViewController: UIViewController {
 
     let viewModel = ContentViewModel()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // DetailViewController 데이터 줄꺼에요
+        if segue.identifier == "showDetail" {
+            let vc = segue.destination as? DetailViewController
+            if let index = sender as? Int {
+
+                let bountyInfo = viewModel.contentInfo(at: index)
+                vc?.viewModel.update(model: bountyInfo)
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -52,11 +65,12 @@ extension ContentCollectionViewController: UICollectionViewDataSource {
     }
 }
     
-    extension ContentCollectionViewController: UICollectionViewDelegate {
+    extension  ContentCollectionViewController: UICollectionViewDelegate {
+        
         // 클릭했을때 어떻게 할까?
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            // TODO: 곡 클릭시 플레이어뷰 띄우기
-        }
+         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+             performSegue(withIdentifier: "showDetail", sender: indexPath.item)
+         }
     }
 
     extension ContentCollectionViewController: UICollectionViewDelegateFlowLayout {
