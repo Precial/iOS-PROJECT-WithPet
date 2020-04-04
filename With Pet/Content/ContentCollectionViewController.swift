@@ -36,18 +36,21 @@ extension ContentCollectionViewController: UICollectionViewDataSource {
         
 
       }
-    // 헤더뷰 어떻게 표시할까?
-        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            switch kind {
-            case UICollectionView.elementKindSectionHeader:
-                // TODO: 헤더 구성하기
-                return UICollectionReusableView()
-            default:
-                return UICollectionReusableView()
-            }
-        }
-    }
 
+    
+    // 헤더뷰 어떻게 표시할까?
+      func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+   
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Typesomethingheader", for: indexPath) as? ContentCollectionHeaderView else {
+            return UICollectionReusableView ()
+        }
+
+    
+     return header
+    
+    }
+}
+    
     extension ContentCollectionViewController: UICollectionViewDelegate {
         // 클릭했을때 어떻게 할까?
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -64,6 +67,7 @@ extension ContentCollectionViewController: UICollectionViewDataSource {
                 return CGSize(width: width, height: height)
             }
         }
+
 
 
 
