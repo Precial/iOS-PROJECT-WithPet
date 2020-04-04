@@ -10,9 +10,25 @@ import UIKit
 
 class ContentCollectionHeaderView: UICollectionReusableView {
     @IBOutlet weak var headerImage: UIImageView!
+    @IBOutlet weak var headerName: UILabel!
+    @IBOutlet weak var headerAdress: UILabel!
+    
+    let viewModel = ContentViewModel()
+   
+    
+    var randomValue = arc4random_uniform(7)
+    
     
     func updateUI(){
-        headerImage.image = UIImage(named: "nami.jpg")
+     
+        let currentValue = Int(randomValue)
+        let pickName = viewModel.contentInfoList[currentValue].name
+        let pickAdress = viewModel.contentInfoList[currentValue].adress
+        
+        
+        headerImage.image = UIImage(named: "\(pickName).jpg")
+        headerName.text = "\(pickName)"
+        headerAdress.text = "\(pickAdress)"
     }
     //           @IBOutlet weak var thumbnailImageView: UIImageView!
 //            @IBOutlet weak var descriptionLabel: UILabel!
