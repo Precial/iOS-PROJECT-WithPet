@@ -32,15 +32,20 @@ class ViewController: UIViewController {
     
      //Login 클릭할시 ->
     @IBAction func loginButton(_ sender: Any) {
-        Auth.auth().signIn(withEmail: loginID.text!, password: loginPW.text!){
-            (user, error) in if user != nil {
-                print("로그인 성공")
-                self.performSegue(withIdentifier: "loginNext", sender: self)
-            } else {
-                print("로그인 불가")
-                self.loginFailMessage()
-            }
-        }
+        
+        /* 테스트 모드 */
+        self.performSegue(withIdentifier: "loginNext", sender: self)
+        
+        /* 상용모드 */
+//        Auth.auth().signIn(withEmail: loginID.text!, password: loginPW.text!){
+//            (user, error) in if user != nil {
+//                print("로그인 성공")
+//                self.performSegue(withIdentifier: "loginNext", sender: self)
+//            } else {
+//                print("로그인 불가")
+//                self.loginFailMessage()
+//            }
+//        }
      
     }
     
