@@ -10,6 +10,8 @@ import UIKit
 
 class ContentCollectionViewController: UIViewController {
 
+    let viewModel = ContentViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -18,7 +20,7 @@ class ContentCollectionViewController: UIViewController {
 extension ContentCollectionViewController: UICollectionViewDataSource {
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.numOfCotentInfoList
     }
     
      // 셀 어떻게 표시 할까?
@@ -26,9 +28,13 @@ extension ContentCollectionViewController: UICollectionViewDataSource {
           // TODO: 셀 구성하기
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCollectionViewCell", for: indexPath) as? ContentCollectionViewCell else {
             return UICollectionViewCell()
-                
         }
-          return cell
+        
+        let info = viewModel.contentInfo(at: indexPath.row)
+        cell.updateUI(item: info)
+             return cell
+        
+
       }
     // 헤더뷰 어떻게 표시할까?
         func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -50,12 +56,45 @@ extension ContentCollectionViewController: UICollectionViewDataSource {
     }
 
     extension ContentCollectionViewController: UICollectionViewDelegateFlowLayout {
-        // 셀 사이즈 어떻게 할까?
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            // 20 - card(width) - 20 - card(width) - 20
-            // TODO: 셀사이즈 구하기
-            return CGSize(width: 194, height: 241)
+            // 셀 사이즈 어떻게 할까?
+            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+                // 20 - card(width) - 20 - card(width) - 20
+                let width: CGFloat = (collectionView.bounds.width - (20 * 3))/2
+                let height: CGFloat = width + 60
+                return CGSize(width: width, height: height)
+            }
         }
-    }
 
+
+
+class ContentViewModel {
+    let contentInfoList: [Content] = [
+        Content(name: "brook", adress: "33000000"),
+        Content(name: "chopper", adress: "50"),
+        Content(name: "franky", adress: "44000000"),
+        Content(name: "luffy", adress: "300000000"),
+        Content(name: "nami", adress: "16000000"),
+        Content(name: "robin", adress: "80000000"),
+        Content(name: "sanji", adress: "77000000"),
+        Content(name: "zoro", adress: "120000000")
+    ]
+    
+//    var sortedList: [Content] {
+//        let sortedList = cotentInfoList.sorted { prev, next  in
+//            return prev.cotent > next.cotent
+//        }
+        
+//        return contentInfoList
+    
+        var numOfCotentInfoList: Int {
+            return contentInfoList.count
+       }
+    func contentInfo(at index: Int) -> Content{
+           return contentInfoList[index]
+       }
+    }
+    
+
+    
+   
 

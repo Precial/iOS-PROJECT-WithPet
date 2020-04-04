@@ -10,11 +10,13 @@ import UIKit
 struct Content {
     let name: String
     let adress: String
-    let image: UIImage
+   
     
-    init(name: String, adress: String, image: UIImage) {
+    var image: UIImage? {
+           return UIImage(named: "\(name).jpg")
+       }
+    init(name: String, adress: String ) {
         self.name = name
         self.adress = adress
-        self.image = image
     }
 }

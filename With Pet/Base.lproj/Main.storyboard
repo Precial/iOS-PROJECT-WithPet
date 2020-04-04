@@ -134,11 +134,11 @@
                                     <size key="itemSize" width="194" height="241"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="15" maxX="1" maxY="15"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCollectionViewCell" id="Gya-sA-6vp" customClass="ContentCollectionViewCell" customModule="With_Pet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="194" height="241"/>
+                                        <rect key="frame" x="15" y="15" width="194" height="241"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MhC-yU-uat">
                                             <rect key="frame" x="0.0" y="0.0" width="194" height="241"/>

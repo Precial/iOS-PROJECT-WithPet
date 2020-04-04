@@ -13,15 +13,16 @@ class ContentCollectionViewCell: UICollectionViewCell {
         @IBOutlet weak var contentImage: UIImageView!
         @IBOutlet weak var contentName: UILabel!
         @IBOutlet weak var contentAdress: UILabel!
+    
         
-        override func awakeFromNib() {
-            super.awakeFromNib()
-            contentImage.layer.cornerRadius = 4
-            contentAdress.textColor = UIColor.systemGray2
-        }
-        
-        func updateUI(item: Content?) {
-       
+        func updateUI(item: Content) {
+            
+           contentImage.image = item.image
+           contentName.text = item.name
+           contentAdress.text = "\(item.adress)"
             
         }
     }
+
+
+
