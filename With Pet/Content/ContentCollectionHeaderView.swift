@@ -9,7 +9,12 @@
 import UIKit
 
 class ContentCollectionHeaderView: UICollectionReusableView {
-//           @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var headerImage: UIImageView!
+    
+    func updateUI(){
+        headerImage.image = UIImage(named: "nami.jpg")
+    }
+    //           @IBOutlet weak var thumbnailImageView: UIImageView!
 //            @IBOutlet weak var descriptionLabel: UILabel!
 //
 //

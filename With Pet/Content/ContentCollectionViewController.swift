@@ -42,10 +42,11 @@ extension ContentCollectionViewController: UICollectionViewDataSource {
       func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
    
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Typesomethingheader", for: indexPath) as? ContentCollectionHeaderView else {
+            
             return UICollectionReusableView ()
         }
-
-    
+        
+        header.updateUI()
      return header
     
     }
