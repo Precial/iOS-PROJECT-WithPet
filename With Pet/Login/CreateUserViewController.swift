@@ -20,6 +20,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     // 회원가입 입력 inputTextbox 연결
     @IBOutlet weak var createID: UITextField!
     @IBOutlet weak var createPW: UITextField!
+    @IBOutlet weak var createPW2: UITextField!
     
     // 프로필 파일 사진 이미지뷰 연결
     @IBOutlet weak var profileImage: UIImageView!
@@ -30,7 +31,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     // 알람창 띄우는 메시지 변수
     var createMessage: String = ""
-    var createTrue: Bool = true
+    var createTrue: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,24 +48,20 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     // 가입하기 버튼 클릭시 ->
     @IBAction func createUser(_ sender: Any) {
-        Auth.auth().createUser(withEmail: createID.text!, password: createPW.text!) {
-                      (user, error) in
-                      if user != nil {
-                        self.createMessage = "회원가입이 완료되었습니다."
-                        self.createTrue = true
-                        self.createUserMessage(msg: self.createMessage)
-                      } else {
-                            
-                            self.createMessage = "이미 동일한 계정이 있습니다."
-                            self.createTrue = false
-                            self.createUserMessage(msg: self.createMessage)
-                      }
-                  }
+        if self.createPW.text! == self.createPW2.text!{
+            if self.agreeCheckButton.isSelected && self.agreeCheckButton2.isSelected{
+               creatUserComplete()
+            } else {
+                createStopMessage(msg: "약관을 모두 동의해주세요.")
+            }
+
+        } else{
+            createStopMessage(msg: "비밀번호가 일치하지 않습니다.")
+        }
+        
               }
     
-//    // 취소하기 버튼 클릭시 ->
 
-//        navigationController?.popViewController(animated: true) // 네이게이션 직전 페이지로 이동
 
     // 약관 동의 버튼 클릭시 ->
     @IBAction func agreeCheckBtn(_ sender: Any) {
@@ -83,31 +80,33 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     @IBAction func uploadImage(_ sender: Any) {
     }
     
-    // 알람창 띄우는 함수
-    func createUserMessage(msg: String) {
-           
-        if self.agreeCheckButton.isSelected && self.agreeCheckButton2.isSelected{
-        
-           let alert = UIAlertController(title: "", message: msg, preferredStyle: .alert)
-               alert.addAction(UIAlertAction(title: "확인", style: .default){
-               UIAlertAction in
-                if self.createTrue {
-                    
-                   self.dismiss(animated: true, completion: nil)
-                    
-                    
-                }
-         })
-        present(alert, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "", message: "약관을 모두 동의해주세요.", preferredStyle: .alert)
-                         alert.addAction(UIAlertAction(title: "확인", style: .default){
-                         UIAlertAction in
-                          self.navigationController?.popViewController(animated: true)
-                   })
-                  present(alert, animated: true, completion: nil)
-        }
-   
+    func creatUserComplete(){
+           Auth.auth().createUser(withEmail: createID.text!, password: createPW.text!) {
+                              (user, error) in
+                              if user != nil {
+                                self.createMessage = "회원가입이 완료되었습니다."
+                                self.createTrue = true
+                                self.createStopMessage(msg: self.createMessage)
+                              } else {
+                                    self.createMessage = "이미 동일한 계정이 있습니다."
+                                    self.createTrue = false
+                                self.createStopMessage(msg: self.createMessage)
+                              }
+                          }
     }
-}
+    
 
+    func createStopMessage(msg: String){
+        let alert = UIAlertController(title: "", message: msg, preferredStyle: .alert)
+                               alert.addAction(UIAlertAction(title: "확인", style: .default){
+                               UIAlertAction in
+                                  if self.createTrue {
+                                    self.dismiss(animated: true, completion: nil)
+                                }
+                         })
+                        present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+}

@@ -541,7 +541,7 @@
                                 <rect key="frame" x="35" y="381" width="351" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tl1-w2-rvS">
                                 <rect key="frame" x="35" y="423" width="173" height="34"/>
@@ -553,7 +553,7 @@
                                 <rect key="frame" x="35" y="339" width="351" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gSz-hd-yDt">
                                 <rect key="frame" x="271" y="427" width="83" height="32"/>
@@ -623,6 +623,7 @@
                         <outlet property="agreeCheckButton2" destination="idm-Yc-3en" id="Mni-sI-vjv"/>
                         <outlet property="createID" destination="Hmn-Q2-gxk" id="M0Z-YI-gnC"/>
                         <outlet property="createPW" destination="fsF-Ot-tyE" id="0Cp-b5-EHr"/>
+                        <outlet property="createPW2" destination="LrV-B4-eSj" id="m5C-eP-KFv"/>
                         <outlet property="profileImage" destination="zNp-tE-Q5n" id="rej-di-gt6"/>
                     </connections>
                 </viewController>
