@@ -30,8 +30,19 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 네이게이션 바 표시
+        navigationController?.navigationBar.isHidden = false
+
+        // 네이게이션 바 제목
+        
     }
 
+    // 취소하기 버튼 클릭시 ->
+   
+    @IBAction func cancleButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // 가입하기 버튼 클릭시 ->
     @IBAction func createUser(_ sender: Any) {
@@ -50,10 +61,10 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
                   }
               }
     
-    // 취소하기 버튼 클릭시 ->
-    @IBAction func createCancle(_ sender: Any) {
-        navigationController?.popViewController(animated: true) // 네이게이션 직전 페이지로 이동
-    }
+//    // 취소하기 버튼 클릭시 ->
+
+//        navigationController?.popViewController(animated: true) // 네이게이션 직전 페이지로 이동
+
     
     // 이미지 업로드 버튼 클릭시 ->
     @IBAction func uploadImage(_ sender: Any) {
@@ -66,7 +77,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
                alert.addAction(UIAlertAction(title: "확인", style: .default){
                UIAlertAction in
                 if self.createTrue {
-                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
                 }
          })
         present(alert, animated: true, completion: nil)
