@@ -24,6 +24,10 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     // 프로필 파일 사진 이미지뷰 연결
     @IBOutlet weak var profileImage: UIImageView!
     
+    // 이용약관 체크버튼
+    @IBOutlet weak var agreeCheckButton: UIButton!
+    @IBOutlet weak var agreeCheckButton2:  UIButton!
+    
     // 알람창 띄우는 메시지 변수
     var createMessage: String = ""
     var createTrue: Bool = true
@@ -31,10 +35,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 네이게이션 바 표시
-        navigationController?.navigationBar.isHidden = false
-
-        // 네이게이션 바 제목
+     
         
     }
 
@@ -65,6 +66,18 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
 
 //        navigationController?.popViewController(animated: true) // 네이게이션 직전 페이지로 이동
 
+    // 약관 동의 버튼 클릭시 ->
+    @IBAction func agreeCheckBtn(_ sender: Any) {
+        agreeCheckButton.isSelected = !agreeCheckButton.isSelected
+    }
+    
+    @IBAction func agreeCheckBtn2(_ sender: Any) {
+          agreeCheckButton2.isSelected = !agreeCheckButton2.isSelected
+    }
+//    
+    
+    
+    
     
     // 이미지 업로드 버튼 클릭시 ->
     @IBAction func uploadImage(_ sender: Any) {
