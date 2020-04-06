@@ -86,16 +86,28 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     // 알람창 띄우는 함수
     func createUserMessage(msg: String) {
            
+        if self.agreeCheckButton.isSelected && self.agreeCheckButton2.isSelected{
+        
            let alert = UIAlertController(title: "", message: msg, preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "확인", style: .default){
                UIAlertAction in
                 if self.createTrue {
-                self.dismiss(animated: true, completion: nil)
+                    
+                   self.dismiss(animated: true, completion: nil)
+                    
+                    
                 }
          })
         present(alert, animated: true, completion: nil)
-       }
+        } else {
+            let alert = UIAlertController(title: "", message: "약관을 모두 동의해주세요.", preferredStyle: .alert)
+                         alert.addAction(UIAlertAction(title: "확인", style: .default){
+                         UIAlertAction in
+                          self.navigationController?.popViewController(animated: true)
+                   })
+                  present(alert, animated: true, completion: nil)
+        }
    
-
+    }
 }
 
