@@ -19,10 +19,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginID: UITextField!
     @IBOutlet weak var loginPW: UITextField!
     
+    // 외부 로그인 버튼
+    @IBOutlet weak var kakaoBtn: UIButton!
+    @IBOutlet weak var FacebookBtn: UIButton!
+    @IBOutlet weak var googleBtn: UIButton!
+    @IBOutlet weak var appleBtn: UIButton!
+    
+    
     // 앱이 처음 로드될때
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true // 네비게이션 바 숨기기
+    
     }
     
     // 앱이 RE 로드될때
@@ -73,6 +81,6 @@ class ViewController: UIViewController {
                     present(alert,animated: true, completion: nil)
      }
     
-    
+
 }
 
