@@ -129,21 +129,19 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func adduserData() {
-           // [START add_ada_lovelace]
-           // Add a new document with a generated ID
-           var ref: DocumentReference? = nil
-           ref = db.collection("users").addDocument(data: [
-            "ID": self.createID.text!,
-            "Password": self.createPW.text!,
-            "Name": self.createName.text!
-           ]) { err in
-               if let err = err {
-                   print("Error adding document: \(err)")
-               } else {
-                   print("Document added with ID: \(ref!.documentID)")
-               }
-           }
-           // [END add_ada_lovelace]
+    
+            
+        db.collection("users").document(self.createID.text!).setData([
+                   "ID": self.createID.text!,
+                   "Password": self.createPW.text!,
+                   "Name": self.createName.text!
+                 ]) { err in
+                     if let err = err {
+                         print("Error writing document: \(err)")
+                     } else {
+                         print("Document successfully written!")
+                     }
+                 }
        }
     
 }
