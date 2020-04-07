@@ -17,11 +17,17 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
 
+
+
 class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     // 디비 변수
     var db: Firestore!
     
+    // 이미지 가져오기
+     let picker = UIImagePickerController()
+    
+
 
     // 회원가입 입력 inputTextbox 연결
     @IBOutlet weak var createID: UITextField!
@@ -30,7 +36,9 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var createName: UITextField!
     
     // 프로필 파일 사진 이미지뷰 연결
-    @IBOutlet weak var profileImage: UIImageView!
+
+    @IBOutlet weak var imgUpload: UIImageView!
+    
     
     // 이용약관 체크버튼
     @IBOutlet weak var agreeCheckButton: UIButton!
@@ -39,17 +47,20 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     // 알람창 띄우는 메시지 변수
     var createMessage: String = ""
     var createTrue: Bool = false
+  
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        picker.delegate = self
+ 
         // [START setup]
             let settings = FirestoreSettings()
 
             Firestore.firestore().settings = settings
             // [END setup]
             db = Firestore.firestore()
-     
+  
 
     }
 
@@ -94,10 +105,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    // 이미지 업로드 버튼 클릭시 ->
-    @IBAction func uploadImage(_ sender: Any) {
-    }
-    
+  
     func creatUserComplete(){
            Auth.auth().createUser(withEmail: createID.text!, password: createPW.text!) {
                               (user, error) in
@@ -144,4 +152,63 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
                  }
        }
     
+    
+    
+    @IBAction func addImage(_ sender: Any) {
+        let alert =  UIAlertController(title: "원하는 타이틀", message: "원하는 메세지", preferredStyle: .actionSheet)
+                
+                let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in self.openLibrary()
+                }
+                
+                let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
+                    self.openCamera()
+                }
+                
+                let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                
+                alert.addAction(library)
+                alert.addAction(camera)
+                alert.addAction(cancel)
+                present(alert, animated: true, completion: nil)
+    }
+    
+      func openLibrary()
+      {
+          picker.sourceType = .photoLibrary
+          present(picker, animated: false, completion: nil)
+
+      }
+      func openCamera()
+      {
+          if(UIImagePickerController .isSourceTypeAvailable(.camera)){
+              picker.sourceType = .camera
+              present(picker, animated: false, completion: nil)
+          }
+          else{
+              print("Camera not available")
+          }
+      }
+    
 }
+extension CreateUserViewController : UIImagePickerControllerDelegate,
+UINavigationControllerDelegate{
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        if let image = info[.originalImage] as? UIImage {
+            imgUpload.image = image
+
+            print(info)
+
+        }
+        dismiss(animated: true, completion: nil)
+
+    }
+
+
+
+
+
+
+}
+

@@ -502,27 +502,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dJ-F8-6K5">
-                                <rect key="frame" x="199" y="164" width="52" height="52"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Button" image="camera" catalog="system"/>
-                                <connections>
-                                    <action selector="uploadImage:" destination="Jt3-3Y-pAe" eventType="touchUpInside" id="AxS-rY-4Ix"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일 주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hmn-Q2-gxk">
                                 <rect key="frame" x="35" y="297" width="351" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zNp-tE-Q5n">
-                                <rect key="frame" x="35" y="153.5" width="138" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ei-am-Ast">
                                 <rect key="frame" x="0.0" y="485" width="414" height="6"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -637,6 +622,18 @@
                                     <action selector="agreeCheckBtn2:" destination="Jt3-3Y-pAe" eventType="touchUpInside" id="xi1-ta-rzp"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0D-jS-rhC">
+                                <rect key="frame" x="17" y="118" width="144" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbc-Kc-ipH">
+                                <rect key="frame" x="269" y="167" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addImage:" destination="Jt3-3Y-pAe" eventType="touchUpInside" id="iif-hN-te6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="OVv-1c-OKv"/>
@@ -648,7 +645,7 @@
                         <outlet property="createName" destination="Tl1-w2-rvS" id="Co1-Ff-IVy"/>
                         <outlet property="createPW" destination="fsF-Ot-tyE" id="0Cp-b5-EHr"/>
                         <outlet property="createPW2" destination="LrV-B4-eSj" id="m5C-eP-KFv"/>
-                        <outlet property="profileImage" destination="zNp-tE-Q5n" id="rej-di-gt6"/>
+                        <outlet property="imgUpload" destination="c0D-jS-rhC" id="MOh-uh-2uN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fx-xn-Z1V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -698,14 +695,12 @@
     <resources>
         <image name="apple" width="512" height="420"/>
         <image name="background" width="752" height="1336"/>
-        <image name="camera" catalog="system" width="128" height="96"/>
         <image name="cat" width="564" height="1001"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="facebook" width="325" height="325"/>
         <image name="google" width="500" height="500"/>
         <image name="kakao" width="512" height="512"/>
-        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="seoulMap" width="951" height="634"/>
     </resources>
 </document>
