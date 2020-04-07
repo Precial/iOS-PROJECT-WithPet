@@ -634,6 +634,7 @@
                         <outlet property="agreeCheckButton" destination="cOf-Zl-bx3" id="Nb1-dP-NWC"/>
                         <outlet property="agreeCheckButton2" destination="idm-Yc-3en" id="Mni-sI-vjv"/>
                         <outlet property="createID" destination="Hmn-Q2-gxk" id="M0Z-YI-gnC"/>
+                        <outlet property="createName" destination="Tl1-w2-rvS" id="Co1-Ff-IVy"/>
                         <outlet property="createPW" destination="fsF-Ot-tyE" id="0Cp-b5-EHr"/>
                         <outlet property="createPW2" destination="LrV-B4-eSj" id="m5C-eP-KFv"/>
                         <outlet property="profileImage" destination="zNp-tE-Q5n" id="rej-di-gt6"/>

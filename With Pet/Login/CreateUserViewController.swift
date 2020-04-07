@@ -14,13 +14,20 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 
 class CreateUserViewController: UIViewController, UITextFieldDelegate {
+    
+    // 디비 변수
+    var db: Firestore!
+    
 
     // 회원가입 입력 inputTextbox 연결
     @IBOutlet weak var createID: UITextField!
     @IBOutlet weak var createPW: UITextField!
     @IBOutlet weak var createPW2: UITextField!
+    @IBOutlet weak var createName: UITextField!
     
     // 프로필 파일 사진 이미지뷰 연결
     @IBOutlet weak var profileImage: UIImageView!
@@ -36,8 +43,14 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // [START setup]
+            let settings = FirestoreSettings()
+
+            Firestore.firestore().settings = settings
+            // [END setup]
+            db = Firestore.firestore()
      
-        
+
     }
 
     // 취소하기 버튼 클릭시 ->
@@ -73,7 +86,12 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     }
 //    
     
-    
+    // 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+
+          self.view.endEditing(true)
+
+    }
     
     
     // 이미지 업로드 버튼 클릭시 ->
@@ -85,10 +103,11 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
                               (user, error) in
                               if user != nil {
                                 self.createMessage = "회원가입이 완료되었습니다."
+                                self.adduserData()
                                 self.createTrue = true
                                 self.createStopMessage(msg: self.createMessage)
                               } else {
-                                    self.createMessage = "이미 동일한 계정이 있습니다."
+                                    self.createMessage = "이미있는 계정이거나 입력하신 정보가 올바르지 않습니다."
                                     self.createTrue = false
                                 self.createStopMessage(msg: self.createMessage)
                               }
@@ -108,5 +127,23 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
         
         
     }
+    
+    private func adduserData() {
+           // [START add_ada_lovelace]
+           // Add a new document with a generated ID
+           var ref: DocumentReference? = nil
+           ref = db.collection("users").addDocument(data: [
+            "ID": self.createID.text!,
+            "Password": self.createPW.text!,
+            "Name": self.createName.text!
+           ]) { err in
+               if let err = err {
+                   print("Error adding document: \(err)")
+               } else {
+                   print("Document added with ID: \(ref!.documentID)")
+               }
+           }
+           // [END add_ada_lovelace]
+       }
     
 }

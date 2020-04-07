@@ -8,6 +8,10 @@ use_frameworks!
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+pod 'FirebaseFirestoreSwift'
+
+
 
   # Pods for With Pet
 
