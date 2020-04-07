@@ -59,9 +59,29 @@ class userInformaitionViewController: UIViewController {
                         if self.nowUserKey == document.documentID {
                          print("현재 로그인한 사용자는 \(document.documentID) => \(document.data())")
                          
+                             let info = document.data()
+                            
+                            guard let ID = info["ID"] else {return}
+                            guard let Password = info["Password"] else {return}
+                            guard let Name = info["Name"] else {return}
+                            
+                            
+                            // 자료형 문자열로 변환
+                            let tempId = "\(ID)"
+                            let tempPw = "\(Password)"
+                            let tempName = "\(Name)"
+                            
+                            self.userID.text = tempId
+                            self.userPassword.text = tempPw
+                            self.userName.text = tempName
+                                
+                            
+                            print(ID)
+                            print(Password)
+                            print(Name)
                         }
                      }
-                     print(self.nowUserKey )
+          
                  }
              }
     }
