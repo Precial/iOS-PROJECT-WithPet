@@ -24,6 +24,9 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     // 디비 변수
     var db: Firestore!
     
+    // 이용동의 넘어갈때 사용하는 코드 변수
+    var agreeNextCode = 0
+    
     // 이미지 가져오기
      let picker = UIImagePickerController()
     
@@ -48,10 +51,13 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     var createMessage: String = ""
     var createTrue: Bool = false
   
+    
+  
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true // 네비게이션 바 숨기기
         picker.delegate = self
  
         // [START setup]
@@ -64,6 +70,13 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
 
     }
 
+    // 앱이 RE 로드될때
+       override func viewWillAppear(_ animated: Bool) {
+           self.navigationController?.navigationBar.isHidden = true // 네비게이션 바 숨기기
+       }
+    
+    
+    
     // 취소하기 버튼 클릭시 ->
    
     @IBAction func cancleButton(_ sender: Any) {
@@ -105,7 +118,30 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-  
+    
+    // 이용약관 내용보기 클릭시
+    @IBAction func agreeContent1(_ sender: Any) {
+        agreeNextCode=1000
+        agreePageNext()
+    }
+    
+    @IBAction func agreeContent2(_ sender: Any) {
+        agreeNextCode=2000
+        agreePageNext()
+    }
+    
+    
+    func agreePageNext(){
+        guard let rvc = self.storyboard?.instantiateViewController(withIdentifier:"showAgree") as? AgreeViewController else {
+                   //아니면 종료
+                   return
+               }
+        rvc.receiveCode = self.agreeNextCode
+               //화면전환
+               self.navigationController?.pushViewController(rvc, animated: true)
+    }
+    
+    
     func creatUserComplete(){
            Auth.auth().createUser(withEmail: createID.text!, password: createPW.text!) {
                               (user, error) in
@@ -204,11 +240,5 @@ UINavigationControllerDelegate{
         dismiss(animated: true, completion: nil)
 
     }
-
-
-
-
-
-
 }
 

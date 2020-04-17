@@ -66,7 +66,7 @@
                                 <state key="normal" title="회원가입"/>
                                 <connections>
                                     <action selector="createUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MyL-FR-Prn"/>
-                                    <segue destination="Jt3-3Y-pAe" kind="modal" identifier="creatUser" modalPresentationStyle="fullScreen" id="zC8-oS-9CB"/>
+                                    <segue destination="GlV-vH-Ggc" kind="modal" identifier="creatUser" modalPresentationStyle="fullScreen" id="zC8-oS-9CB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMQ-Yf-4RR">
@@ -378,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfx-Ns-OKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2792.753623188406" y="857.8125"/>
+            <point key="canvasLocation" x="3702.898550724638" y="857.8125"/>
         </scene>
         <!--User Informaition View Controller-->
         <scene sceneID="vjf-3F-Lna">
@@ -521,12 +521,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQF-39-no6">
-                                <rect key="frame" x="352" y="568" width="42" height="27"/>
+                                <rect key="frame" x="352" y="574" width="42" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="내용보기">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="agreeContent1:" destination="Jt3-3Y-pAe" eventType="touchUpInside" id="hG7-GM-DjZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="회원가입" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dg-C0-SMM">
                                 <rect key="frame" x="143" y="57" width="129" height="30"/>
@@ -546,12 +549,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMX-cl-IkN">
-                                <rect key="frame" x="352" y="612" width="42" height="27"/>
+                                <rect key="frame" x="352" y="614" width="42" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="내용보기">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="agreeContent2:" destination="Jt3-3Y-pAe" eventType="touchUpInside" id="AnQ-J3-egq"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LrV-B4-eSj">
                                 <rect key="frame" x="35" y="381" width="351" height="34"/>
@@ -638,6 +644,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="OVv-1c-OKv"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pwB-JE-tox"/>
                     <connections>
                         <outlet property="agreeCheckButton" destination="cOf-Zl-bx3" id="Nb1-dP-NWC"/>
                         <outlet property="agreeCheckButton2" destination="idm-Yc-3en" id="Mni-sI-vjv"/>
@@ -650,7 +657,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fx-xn-Z1V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1037.68115942029" y="857.8125"/>
+            <point key="canvasLocation" x="995.65217391304361" y="1626.5625"/>
+        </scene>
+        <!--Agree View Controller-->
+        <scene sceneID="SBQ-Mr-D3v">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sKC-AS-Flu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="showAgree" useStoryboardIdentifierAsRestorationIdentifier="YES" id="khl-K7-J7E" customClass="AgreeViewController" customModule="With_Pet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kpG-nv-vh9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvK-YV-Cn4">
+                                <rect key="frame" x="186" y="265" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="baL-4E-PFd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2jg-BS-Xji"/>
+                    <connections>
+                        <outlet property="codeCheck" destination="vvK-YV-Cn4" id="4Sf-c8-Fwe"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="329" y="1627"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hIs-o5-zWY">
@@ -690,6 +725,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kt3-YY-Fx5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1882.608695652174" y="130.58035714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Nn-zx-zAK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GlV-vH-Ggc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lSo-gK-pJ4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jt3-3Y-pAe" kind="relationship" relationship="rootViewController" id="q4s-oU-g8L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xW2-7I-RRk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="995.65217391304361" y="896.65178571428567"/>
         </scene>
     </scenes>
     <resources>
