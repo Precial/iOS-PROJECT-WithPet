@@ -668,8 +668,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvK-YV-Cn4">
-                                <rect key="frame" x="186" y="265" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lA-7V-JCh">
+                                <rect key="frame" x="42" y="283" width="289" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -681,11 +681,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="2jg-BS-Xji"/>
                     <connections>
-                        <outlet property="codeCheck" destination="vvK-YV-Cn4" id="4Sf-c8-Fwe"/>
+                        <outlet property="contentLable" destination="8lA-7V-JCh" id="0Ve-Ya-7V7"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="329" y="1627"/>
+            <point key="canvasLocation" x="327.536231884058" y="1626.5625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hIs-o5-zWY">

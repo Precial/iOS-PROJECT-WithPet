@@ -25,6 +25,10 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     var db: Firestore!
     
     // 이용동의 넘어갈때 사용하는 코드 변수
+    /*
+        agreeNextCode: 0 이용약관
+                       1 개인정보 수집 및 이용동의
+     */
     var agreeNextCode = 0
     
     // 이미지 가져오기
@@ -121,12 +125,12 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     // 이용약관 내용보기 클릭시
     @IBAction func agreeContent1(_ sender: Any) {
-        agreeNextCode=1000
+        agreeNextCode=0
         agreePageNext()
     }
     
     @IBAction func agreeContent2(_ sender: Any) {
-        agreeNextCode=2000
+        agreeNextCode=1
         agreePageNext()
     }
     
