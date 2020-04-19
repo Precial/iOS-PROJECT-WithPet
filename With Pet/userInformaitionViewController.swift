@@ -76,6 +76,32 @@ class userInformaitionViewController: UIViewController {
                             self.userName.text = tempName
                                 
                             
+//                            let imageName = "\(self.createName.text!).jpg"
+//
+//                                                          let riversRef = Storage.storage().reference().child("User_ProfileImage").child(self.createID.text!).child(imageName)
+                            
+  
+
+                            
+                            // Create a reference to the file you want to download
+                            let islandRef = Storage.storage().reference().child("User_ProfileImage").child(tempId).child("\(tempName).jpg")
+
+                            // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                            islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                              if let error = error {
+                                // Uh-oh, an error occurred!
+                                print("error")
+                              } else {
+                                // Data for "images/island.jpg" is returned
+                                let image = UIImage(data: data!)
+                                
+                                print("이미지 값은: \(image)")
+                                self.userImage.image = image
+                              }
+                            }
+                            
+                            
+                            
                             print(ID)
                             print(Password)
                             print(Name)
