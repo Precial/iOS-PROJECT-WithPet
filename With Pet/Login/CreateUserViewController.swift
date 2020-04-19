@@ -168,7 +168,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
                                        
                                        let imageName = Auth.auth().currentUser!.uid + "\(Int(NSDate.timeIntervalSinceReferenceDate * 1000)).jpg"
                                                   
-                                                  let riversRef = Storage.storage().reference().child("ios_images").child(imageName)
+                                let riversRef = Storage.storage().reference().child("User_ProfileImage").child(self.createID.text!).child(imageName)
                                                   
                                                 
                                        riversRef.putData(dataa, metadata: nil) { (metadata, error) in
