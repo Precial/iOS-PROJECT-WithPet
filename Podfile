@@ -10,7 +10,7 @@ pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'FirebaseFirestoreSwift'
-
+pod 'Firebase/Storage'
 
 
   # Pods for With Pet

@@ -81,6 +81,13 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     
     
+    // 프로필 업로드
+    @IBAction func profileUpload(_ sender: Any) {
+        
+    }
+    
+    
+    
     // 취소하기 버튼 클릭시 ->
    
     @IBAction func cancleButton(_ sender: Any) {
@@ -237,10 +244,44 @@ UINavigationControllerDelegate{
 
         if let image = info[.originalImage] as? UIImage {
             imgUpload.image = image
-
             print(info)
-
+         
         }
+        
+        
+        guard let sendimage = imgUpload.image, let dataa = sendimage.jpegData(compressionQuality: 1.0) else {
+            return
+        }
+
+        
+        
+        
+        let imageName = Auth.auth().currentUser!.uid + "\(Int(NSDate.timeIntervalSinceReferenceDate * 1000)).jpg"
+                   
+                   let riversRef = Storage.storage().reference().child("ios_images").child(imageName)
+                   
+                   
+                   
+        
+        riversRef.putData(dataa, metadata: nil) { (metadata, error) in
+                     guard let metadata = metadata else {
+                       // Uh-oh, an error occurred!
+                       return
+                     }
+                     // Metadata contains file metadata such as size, content-type.
+                     let size = metadata.size
+                     // You can also access to download URL after upload.
+                     riversRef.downloadURL { (url, error) in
+                       guard let downloadURL = url else {
+                         // Uh-oh, an error occurred!
+                         return
+                       }
+                     }
+                   }
+          
+                
+        
+        
         dismiss(animated: true, completion: nil)
 
     }

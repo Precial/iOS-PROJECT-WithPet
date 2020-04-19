@@ -640,6 +640,14 @@
                                     <action selector="addImage:" destination="Jt3-3Y-pAe" eventType="touchUpInside" id="iif-hN-te6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0h-b3-xZd">
+                                <rect key="frame" x="273" y="229" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="업로드"/>
+                                <connections>
+                                    <action selector="profileUpload:" destination="Jt3-3Y-pAe" eventType="touchUpInside" id="aPl-pn-XXM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="OVv-1c-OKv"/>
@@ -662,7 +670,6 @@
         <!--Agree View Controller-->
         <scene sceneID="SBQ-Mr-D3v">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sKC-AS-Flu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="showAgree" useStoryboardIdentifierAsRestorationIdentifier="YES" id="khl-K7-J7E" customClass="AgreeViewController" customModule="With_Pet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kpG-nv-vh9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -684,6 +691,7 @@
                         <outlet property="contentLable" destination="8lA-7V-JCh" id="0Ve-Ya-7V7"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sKC-AS-Flu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="327.536231884058" y="1626.5625"/>
         </scene>
