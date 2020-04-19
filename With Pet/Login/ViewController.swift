@@ -37,27 +37,24 @@ class ViewController: UIViewController {
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
-        Auth.auth().addStateDidChangeListener({ (user, err) in
-                  
-                  let user = false
-                  if user != nil {
-                      self.performSegue(withIdentifier: "loginNext", sender: self)
-                  } else{
-                      
-                  }
-              })
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+                  if let user = user {
+                     
+                    self.performSegue(withIdentifier: "loginNext", sender: self)
+        
+               }
         
         
     
     }
-    
+    }
     // 앱이 RE 로드될때
-    override func viewWillAppear(_ animated: Bool) {
+        override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true // 네비게이션 바 숨기기
     }
     
      //Login 클릭할시 ->
-    @IBAction func loginButton(_ sender: Any) {
+     @IBAction func loginButton(_ sender: Any) {
         
         /* 테스트 모드 */
      //   self.performSegue(withIdentifier: "loginNext", sender: self)
@@ -66,6 +63,8 @@ class ViewController: UIViewController {
         Auth.auth().signIn(withEmail: loginID.text!, password: loginPW.text!){
             (user, error) in if user != nil {
                 print("로그인 성공")
+                self.loginID.text!=""
+                self.loginPW.text!=""
                 self.performSegue(withIdentifier: "loginNext", sender: self)
             } else {
                 print("로그인 불가")
