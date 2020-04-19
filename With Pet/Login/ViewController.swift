@@ -11,8 +11,12 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import GoogleSignIn
 
 class ViewController: UIViewController {
+    
+
+    
 
     
     // 로그인 입력 inputTextbox 연결
@@ -22,7 +26,7 @@ class ViewController: UIViewController {
     // 외부 로그인 버튼
     @IBOutlet weak var kakaoBtn: UIButton!
     @IBOutlet weak var FacebookBtn: UIButton!
-    @IBOutlet weak var googleBtn: UIButton!
+ 
     @IBOutlet weak var appleBtn: UIButton!
     
     
@@ -30,6 +34,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true // 네비게이션 바 숨기기
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        
+        Auth.auth().addStateDidChangeListener({ (user, err) in
+                  
+                  let user = false
+                  if user != nil {
+                      self.performSegue(withIdentifier: "loginNext", sender: self)
+                  } else{
+                      
+                  }
+              })
+        
+        
     
     }
     
@@ -67,9 +85,11 @@ class ViewController: UIViewController {
     @IBAction func rePassword(_ sender: Any) {
     }
     
-    // 카카오 로그인 클릭할시 ->
-    @IBAction func kakaoLoign(_ sender: Any) {
+
+    @IBAction func googleLogin(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
     }
+    
     
     // 로그인 실패 알람창 띄우기
     func loginFailMessage() {

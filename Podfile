@@ -13,6 +13,8 @@ pod 'FirebaseFirestoreSwift'
 pod 'Firebase/Storage'
 
 
+pod 'GoogleSignIn'
+
   # Pods for With Pet
 
 end

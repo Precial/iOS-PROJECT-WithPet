@@ -116,15 +116,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="facebook"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFb-Tp-49q">
-                                <rect key="frame" x="223" y="497" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="google"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nu9-1K-uEj">
                                 <rect key="frame" x="325" y="497" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="apple"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbn-u7-kbt">
+                                <rect key="frame" x="223" y="497" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="google"/>
+                                <connections>
+                                    <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qtj-Of-24Z"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -134,7 +137,6 @@
                     <connections>
                         <outlet property="FacebookBtn" destination="n7D-Ca-sxN" id="QSf-sY-wM4"/>
                         <outlet property="appleBtn" destination="Nu9-1K-uEj" id="g71-CO-haX"/>
-                        <outlet property="googleBtn" destination="SFb-Tp-49q" id="OB3-aE-9mv"/>
                         <outlet property="kakaoBtn" destination="vA8-I5-5Kg" id="Gde-Mw-Urk"/>
                         <outlet property="loginID" destination="3xD-MN-kTi" id="8rl-8c-Dp7"/>
                         <outlet property="loginPW" destination="tDo-5Y-v4T" id="ugH-do-j18"/>
@@ -413,6 +415,14 @@
                                 <rect key="frame" x="72" y="152" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-wl-fS0">
+                                <rect key="frame" x="150" y="575" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="로그아웃"/>
+                                <connections>
+                                    <action selector="logOut:" destination="2VX-f8-xDk" eventType="touchUpInside" id="PGJ-LO-7gJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xeg-Fc-Tfu"/>

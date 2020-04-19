@@ -8,8 +8,11 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
+
+
 
 class userInformaitionViewController: UIViewController {
 
@@ -24,6 +27,20 @@ class userInformaitionViewController: UIViewController {
     
     var handle: AuthStateDidChangeListenerHandle?
     
+    
+    
+    @IBAction func logOut(_ sender: Any) {
+        
+        do {
+            try  Auth.auth().signOut()
+        } catch {
+            
+        }
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,14 +51,14 @@ class userInformaitionViewController: UIViewController {
                // [END setup]
         db = Firestore.firestore()
         
-        
+ 
         //
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                
                 guard let email = user.email else {return }
                 self.nowUserKey = email
-                
+                self.userID.text = user.email
                
   
          }
@@ -71,7 +88,8 @@ class userInformaitionViewController: UIViewController {
                             let tempPw = "\(Password)"
                             let tempName = "\(Name)"
                             
-                            self.userID.text = tempId
+                           // self.userID.text = tempId
+                           
                             self.userPassword.text = tempPw
                             self.userName.text = tempName
                                 
