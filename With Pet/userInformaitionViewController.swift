@@ -16,7 +16,8 @@ class userInformaitionViewController: UIViewController {
     @IBOutlet weak var userID: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userPassword: UILabel!
-       
+    @IBOutlet weak var userImage: UIImageView!
+    
     var nowUserKey = ""
     
     var db: Firestore!
@@ -46,7 +47,6 @@ class userInformaitionViewController: UIViewController {
          }
         }
   
-        
         
         
            // 사용자 목록 돌려서 현재 로그인 한 사용자랑 매칭해서 정보 가져오기 -> 나중엔 목록 돌리지말고 직접 호출 할 수 있도록 수정하기 - 20.04.07 sgjang
