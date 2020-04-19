@@ -160,6 +160,32 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
                                 self.createMessage = "회원가입이 완료되었습니다."
                                 self.adduserData()
                                 self.createTrue = true
+                                
+                                
+                                guard let sendimage = self.imgUpload.image, let dataa = sendimage.jpegData(compressionQuality: 1.0) else {
+                                           return
+                                       }
+                                       
+                                       let imageName = Auth.auth().currentUser!.uid + "\(Int(NSDate.timeIntervalSinceReferenceDate * 1000)).jpg"
+                                                  
+                                                  let riversRef = Storage.storage().reference().child("ios_images").child(imageName)
+                                                  
+                                                
+                                       riversRef.putData(dataa, metadata: nil) { (metadata, error) in
+                                                    guard let metadata = metadata else {
+                                                      // Uh-oh, an error occurred!
+                                                      return
+                                                    }
+                                                    // Metadata contains file metadata such as size, content-type.
+                                                    let size = metadata.size
+                                                    // You can also access to download URL after upload.
+                                                    riversRef.downloadURL { (url, error) in
+                                                      guard let downloadURL = url else {
+                                                        // Uh-oh, an error occurred!
+                                                        return
+                                                      }
+                                                    }
+                                                  }
                                 self.createStopMessage(msg: self.createMessage)
                               } else {
                                     self.createMessage = "이미있는 계정이거나 입력하신 정보가 올바르지 않습니다."
@@ -249,39 +275,7 @@ UINavigationControllerDelegate{
         }
         
         
-        guard let sendimage = imgUpload.image, let dataa = sendimage.jpegData(compressionQuality: 1.0) else {
-            return
-        }
 
-        
-        
-        
-        let imageName = Auth.auth().currentUser!.uid + "\(Int(NSDate.timeIntervalSinceReferenceDate * 1000)).jpg"
-                   
-                   let riversRef = Storage.storage().reference().child("ios_images").child(imageName)
-                   
-                   
-                   
-        
-        riversRef.putData(dataa, metadata: nil) { (metadata, error) in
-                     guard let metadata = metadata else {
-                       // Uh-oh, an error occurred!
-                       return
-                     }
-                     // Metadata contains file metadata such as size, content-type.
-                     let size = metadata.size
-                     // You can also access to download URL after upload.
-                     riversRef.downloadURL { (url, error) in
-                       guard let downloadURL = url else {
-                         // Uh-oh, an error occurred!
-                         return
-                       }
-                     }
-                   }
-          
-                
-        
-        
         dismiss(animated: true, completion: nil)
 
     }

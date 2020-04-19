@@ -644,9 +644,6 @@
                                 <rect key="frame" x="273" y="229" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="업로드"/>
-                                <connections>
-                                    <action selector="profileUpload:" destination="Jt3-3Y-pAe" eventType="touchUpInside" id="aPl-pn-XXM"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
