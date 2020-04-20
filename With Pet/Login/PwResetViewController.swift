@@ -5,10 +5,12 @@
 //  Created by 장성구 on 2020/04/01.
 //  Copyright © 2020 com.sg. All rights reserved.
 //
+//  로그인페이지에서 비밀번호 찾기를 누르면 나타나는 페이지
+//
 
 /* To do  - SMS 인증 추가 */
 /* To do  - 아이디 조회해서 없는 아이디 조회시 경고 알람 띄우기 */
-/* To do  - 취소버튼 추가 */
+
 
 import UIKit
 import Firebase
@@ -16,25 +18,30 @@ import FirebaseAuth
 
 class PwResetViewController: UIViewController {
 
-    // 비밀번호를 찾을 입력
-    @IBOutlet weak var findID: UITextField!
+    @IBOutlet weak var findID: UITextField! // 찾으실 이메일을 입력받는 필드
+    
+    /* 컨트롤러 뷰안에 뷰를 하나 더 생성하여 메인 뒤 뷰에 투명도를 부여하여 페이지 이동이 아닌 팝업창 느낌이 나도록 구현 */
     @IBOutlet weak var popupView: UIView!
+    
+    /* 앱이 로드 되었을 때 */
     override func viewDidLoad() {
         super.viewDidLoad()
+        /* 나타나는 팝업뷰에 테두리를 둥근 테두리로 나타내기 */
         popupView.layer.cornerRadius = 30
     }
     
-    // 비밀번호 재설정 버튼
+    /* 확인버튼을 클릭할 시 동작하는 부분 */
     @IBAction func sendPwReset(_ sender: Any) {
-        Auth.auth().sendPasswordReset(withEmail: findID.text!)
-       createUserMessage()
+        Auth.auth().sendPasswordReset(withEmail: findID.text!) // 입력한 이메일로 비밀번호 재설정 보내기
+        createUserMessage() // 완료 알람창 띄우는 함수 호출
     }
     
+    /* 취소버튼을 클릭할 시 동작하는 부분 */
     @IBAction func cancleBtn(_ sender: Any) {
-         dismiss(animated: true, completion: nil)
+         dismiss(animated: true, completion: nil) // 이전 페이지로 이동
     }
     
-    // 알람창 띄우는 함수
+    /* 전송 완료 알람창 띄우는 함수 */
     func createUserMessage(){
            let alert = UIAlertController(title: "", message: "요청하신 이메일로 발송하였습니다.", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "확인", style: .default){
