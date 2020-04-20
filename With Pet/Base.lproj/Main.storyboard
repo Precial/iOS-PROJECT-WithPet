@@ -643,7 +643,7 @@
                                     <action selector="agreeCheckBtn2:" destination="Jt3-3Y-pAe" eventType="touchUpInside" id="xi1-ta-rzp"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0D-jS-rhC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="c0D-jS-rhC">
                                 <rect key="frame" x="17" y="118" width="144" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -769,6 +769,7 @@
         <image name="facebook" width="325" height="325"/>
         <image name="google" width="500" height="500"/>
         <image name="kakao" width="512" height="512"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="seoulMap" width="951" height="634"/>
     </resources>
 </document>
