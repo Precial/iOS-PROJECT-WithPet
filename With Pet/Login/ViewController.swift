@@ -65,7 +65,7 @@ class ViewController: UIViewController {
                 print("로그인 성공")
                 self.loginID.text!=""
                 self.loginPW.text!=""
-                self.performSegue(withIdentifier: "loginNext", sender: self)
+               // self.performSegue(withIdentifier: "loginNext", sender: self)
             } else {
                 print("로그인 불가")
                 self.loginFailMessage()
