@@ -18,9 +18,10 @@ class AgreeViewController: UIViewController {
     
       var db: Firestore!
      
+    @IBOutlet weak var textView: UITextView!
     
     
-    @IBOutlet weak var contentLable: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +50,7 @@ class AgreeViewController: UIViewController {
                 print(showTitle)
                 print(showContent)
                 
-                self.contentLable.text = showContent
+                self.textView.text = showContent
                 self.navigationItem.title = showTitle
 
                 
