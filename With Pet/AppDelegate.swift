@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        
+        sleep(3) // 앱 시작시 스플래시 화면 길게 보여주기 위해 sleep 적용.
         return true
     }
     
