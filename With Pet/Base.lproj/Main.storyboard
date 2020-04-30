@@ -318,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="3607.2463768115945" y="124.55357142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="GJH-Oc-6vo">
             <objects>
-                <viewController id="oed-C1-jW4" sceneMemberID="viewController">
+                <viewController id="oed-C1-jW4" customClass="MapViewController" customModule="With_Pet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BoP-RV-n7D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

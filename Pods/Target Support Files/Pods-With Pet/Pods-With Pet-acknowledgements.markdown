@@ -3644,6 +3644,14 @@ Copyright 2020 Google
    limitations under the License.
 
 
+## GoogleMaps
+
+Copyright 2020 Google
+
+## GooglePlaces
+
+Copyright 2020 Google
+
 ## GoogleSignIn
 
 Copyright 2019 Google

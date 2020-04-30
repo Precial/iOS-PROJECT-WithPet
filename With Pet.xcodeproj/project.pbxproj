@@ -16,6 +16,7 @@
 		0B20ED36243485F700922E60 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20ED35243485F700922E60 /* CreateUserViewController.swift */; };
 		0B20ED3824348A8E00922E60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20ED3724348A8E00922E60 /* MainViewController.swift */; };
 		0B21DF3A243DB027001C6EEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B21DF39243DB027001C6EEE /* GoogleService-Info.plist */; };
+		0B3BD229245AB29300B687F9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3BD228245AB29300B687F9 /* MapViewController.swift */; };
 		0B3CC380243C39C400372555 /* userInformaitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3CC37F243C39C400372555 /* userInformaitionViewController.swift */; };
 		0B4DE73F2436BB69002AE08D /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE73E2436BB69002AE08D /* Content.swift */; };
 		0B4DE7412436BE72002AE08D /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE7402436BE72002AE08D /* ContentCollectionViewCell.swift */; };
@@ -40,6 +41,7 @@
 		0B20ED35243485F700922E60 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		0B20ED3724348A8E00922E60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0B21DF39243DB027001C6EEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0B3BD228245AB29300B687F9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		0B3CC37F243C39C400372555 /* userInformaitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInformaitionViewController.swift; sourceTree = "<group>"; };
 		0B4DE73E2436BB69002AE08D /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		0B4DE7402436BE72002AE08D /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				0B20ED2724347EC300922E60 /* Main.storyboard */,
+				0B3BD227245AB26F00B687F9 /* Map */,
 				0BAAA02D243841050074327C /* Content */,
 				0BAAA02E243841280074327C /* Login */,
 				0B20ED3724348A8E00922E60 /* MainViewController.swift */,
@@ -100,6 +103,14 @@
 				0B21DF39243DB027001C6EEE /* GoogleService-Info.plist */,
 			);
 			path = "With Pet";
+			sourceTree = "<group>";
+		};
+		0B3BD227245AB26F00B687F9 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0B3BD228245AB29300B687F9 /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		0BAAA02D243841050074327C /* Content */ = {
@@ -290,6 +301,7 @@
 				0BAAA0322438588C0074327C /* ContentViewModel.swift in Sources */,
 				0B4DE7452436BF68002AE08D /* ContentCollectionViewController.swift in Sources */,
 				0B6C7A962434B14E00FC2E45 /* PwResetViewController.swift in Sources */,
+				0B3BD229245AB29300B687F9 /* MapViewController.swift in Sources */,
 				0BAAA02C2438378E0074327C /* ContentCollectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

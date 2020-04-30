@@ -11,6 +11,9 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 
+import CoreData
+import GoogleMaps
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -31,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // 구글 로그인 연동 설정
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
+        // 구글 지도 연동 설정
+        GMSServices.provideAPIKey("AIzaSyCZ6mKDptYq0AubUm3nC2zmzwd9jZ92Ljg")
         
         
         // 페이스북 로그인 연동 설정

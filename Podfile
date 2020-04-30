@@ -22,6 +22,9 @@ pod 'FBSDKPlacesKit'
 
 
 
+pod 'GoogleMaps'
+pod 'GooglePlaces'
+
   # Pods for With Pet
 
 end
