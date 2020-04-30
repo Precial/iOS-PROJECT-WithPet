@@ -58,6 +58,8 @@ class ViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        facebookLoginBtn.setBackgroundImage(UIImage(named: "facebook.png"),for:.normal)
+
         /* 깔끔한 UI로 보이기 위해 네이게이션 바 숨기기 */
         navigationController?.navigationBar.isHidden = true // true: 숨기기, false: 나타내기
         
