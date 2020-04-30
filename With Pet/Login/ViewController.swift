@@ -16,6 +16,7 @@ import FBSDKLoginKit
 
 
 class ViewController: UIViewController, LoginButtonDelegate {
+    
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         
         if(result?.token == nil){return}
@@ -47,9 +48,13 @@ class ViewController: UIViewController, LoginButtonDelegate {
     @IBOutlet weak var kakaoBtn: UIButton!
     @IBOutlet weak var appleBtn: UIButton!
     
-    @IBOutlet weak var fackbookLoginBtn: FBLoginButton!
+    
+    @IBOutlet weak var facebookLoginBtn: FBLoginButton!
+    
+    
     
     /* viewDidLoad()는 앱이 화면에 로드 될때 동작하는 부분 */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,7 +66,8 @@ class ViewController: UIViewController, LoginButtonDelegate {
         
         
         /* 페이스북 로그인 버튼 연동 */
-        fackbookLoginBtn.delegate = self
+        facebookLoginBtn.delegate = self
+     
         
         /* Auth.auth().addStateDidChangeListener는 로그인 상태가 변할때 동작하는 부분 */
         Auth.auth().addStateDidChangeListener { (auth, user) in

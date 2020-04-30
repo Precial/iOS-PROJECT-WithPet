@@ -124,11 +124,14 @@
                                     <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qtj-Of-24Z"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bQ4-zV-3Sn" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="120" y="495" width="81" height="72"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0C-xd-q1E" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="126" y="497" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <state key="normal" image="facebook"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -136,7 +139,7 @@
                     <navigationItem key="navigationItem" id="f28-CR-8HD"/>
                     <connections>
                         <outlet property="appleBtn" destination="Nu9-1K-uEj" id="g71-CO-haX"/>
-                        <outlet property="fackbookLoginBtn" destination="bQ4-zV-3Sn" id="iLW-vP-ub2"/>
+                        <outlet property="facebookLoginBtn" destination="g0C-xd-q1E" id="bHK-6R-zrZ"/>
                         <outlet property="kakaoBtn" destination="vA8-I5-5Kg" id="Gde-Mw-Urk"/>
                         <outlet property="loginID" destination="3xD-MN-kTi" id="8rl-8c-Dp7"/>
                         <outlet property="loginPW" destination="tDo-5Y-v4T" id="ugH-do-j18"/>
@@ -767,6 +770,7 @@
         <image name="cat" width="564" height="1001"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="facebook" width="325" height="325"/>
         <image name="google" width="500" height="500"/>
         <image name="kakao" width="512" height="512"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
