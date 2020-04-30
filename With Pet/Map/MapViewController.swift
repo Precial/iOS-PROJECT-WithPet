@@ -32,6 +32,6 @@ class MapViewController: UIViewController {
                 marker.snippet = "Australia"
                 marker.map = mapView
             }
-
-    
 }
+    
+
