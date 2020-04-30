@@ -15,31 +15,10 @@ import GoogleSignIn
 import FBSDKLoginKit
 
 
-class ViewController: UIViewController, LoginButtonDelegate {
+class ViewController: UIViewController{
     
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        
-        if(result?.token == nil){return}
-      let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-        
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-          if let error = error {
-            // ...
-            return
-          }
-        
-        }
-        
-        /* 페이스북 로그인 후 로그아웃하고 파이어베이스 로그인으로 넘어가기 */
-        LoginManager().logOut();
-        
-    }
+  
     
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-      
-    }
-    
-
     /* 로그인 입력 inputTextbox 연결 */
     @IBOutlet weak var loginID: UITextField!  // 아이디 입력창
     @IBOutlet weak var loginPW: UITextField!  // 패스워드 입력창
@@ -58,7 +37,6 @@ class ViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        facebookLoginBtn.setBackgroundImage(UIImage(named: "facebook.png"),for:.normal)
 
         /* 깔끔한 UI로 보이기 위해 네이게이션 바 숨기기 */
         navigationController?.navigationBar.isHidden = true // true: 숨기기, false: 나타내기
@@ -67,10 +45,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
         
-        /* 페이스북 로그인 버튼 연동 */
-        facebookLoginBtn.delegate = self
-     
-        
+    
         /* Auth.auth().addStateDidChangeListener는 로그인 상태가 변할때 동작하는 부분 */
         Auth.auth().addStateDidChangeListener { (auth, user) in
                   if let user = user {
@@ -174,7 +149,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
     
         let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
         Auth.auth().signIn(with:credential,completion:{(user,error) in })
-        
+        LoginManager().logOut();
     
 }
 

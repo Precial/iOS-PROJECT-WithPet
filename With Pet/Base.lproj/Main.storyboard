@@ -124,15 +124,6 @@
                                     <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qtj-Of-24Z"/>
                                 </connections>
                             </button>
-                            <button contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0C-xd-q1E" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="267" y="625" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
-                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <state key="normal" image="facebook" backgroundImage="facebook"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOR-1Z-7NP">
                                 <rect key="frame" x="123" y="497" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -148,7 +139,6 @@
                     <navigationItem key="navigationItem" id="f28-CR-8HD"/>
                     <connections>
                         <outlet property="appleBtn" destination="Nu9-1K-uEj" id="g71-CO-haX"/>
-                        <outlet property="facebookLoginBtn" destination="g0C-xd-q1E" id="bHK-6R-zrZ"/>
                         <outlet property="kakaoBtn" destination="vA8-I5-5Kg" id="Gde-Mw-Urk"/>
                         <outlet property="loginID" destination="3xD-MN-kTi" id="8rl-8c-Dp7"/>
                         <outlet property="loginPW" destination="tDo-5Y-v4T" id="ugH-do-j18"/>
