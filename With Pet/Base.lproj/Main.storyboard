@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ru3-Tc-uFX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -111,11 +111,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="kakao"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7D-Ca-sxN">
-                                <rect key="frame" x="122" y="497" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="facebook"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nu9-1K-uEj">
                                 <rect key="frame" x="325" y="497" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -129,14 +124,19 @@
                                     <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qtj-Of-24Z"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bQ4-zV-3Sn" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="120" y="495" width="81" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="f28-CR-8HD"/>
                     <connections>
-                        <outlet property="FacebookBtn" destination="n7D-Ca-sxN" id="QSf-sY-wM4"/>
                         <outlet property="appleBtn" destination="Nu9-1K-uEj" id="g71-CO-haX"/>
+                        <outlet property="fackbookLoginBtn" destination="bQ4-zV-3Sn" id="iLW-vP-ub2"/>
                         <outlet property="kakaoBtn" destination="vA8-I5-5Kg" id="Gde-Mw-Urk"/>
                         <outlet property="loginID" destination="3xD-MN-kTi" id="8rl-8c-Dp7"/>
                         <outlet property="loginPW" destination="tDo-5Y-v4T" id="ugH-do-j18"/>
@@ -767,7 +767,6 @@
         <image name="cat" width="564" height="1001"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
-        <image name="facebook" width="325" height="325"/>
         <image name="google" width="500" height="500"/>
         <image name="kakao" width="512" height="512"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>

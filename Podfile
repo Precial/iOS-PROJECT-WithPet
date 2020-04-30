@@ -15,6 +15,13 @@ pod 'Firebase/Storage'
 
 pod 'GoogleSignIn'
 
+pod 'FBSDKCoreKit'  
+pod 'FBSDKLoginKit'
+pod 'FBSDKShareKit'
+pod 'FBSDKPlacesKit'
+
+
+
   # Pods for With Pet
 
 end

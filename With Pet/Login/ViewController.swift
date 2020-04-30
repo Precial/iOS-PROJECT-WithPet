@@ -12,8 +12,32 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
+import FBSDKLoginKit
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, LoginButtonDelegate {
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        
+        if(result?.token == nil){return}
+      let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+        
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+          if let error = error {
+            // ...
+            return
+          }
+        
+        }
+        
+        /* 페이스북 로그인 후 로그아웃하고 파이어베이스 로그인으로 넘어가기 */
+        LoginManager().logOut();
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+      
+    }
+    
 
     /* 로그인 입력 inputTextbox 연결 */
     @IBOutlet weak var loginID: UITextField!  // 아이디 입력창
@@ -21,9 +45,9 @@ class ViewController: UIViewController {
     
     /* 외부 로그인 버튼 연결 */
     @IBOutlet weak var kakaoBtn: UIButton!
-    @IBOutlet weak var FacebookBtn: UIButton!
     @IBOutlet weak var appleBtn: UIButton!
     
+    @IBOutlet weak var fackbookLoginBtn: FBLoginButton!
     
     /* viewDidLoad()는 앱이 화면에 로드 될때 동작하는 부분 */
     override func viewDidLoad() {
@@ -34,6 +58,10 @@ class ViewController: UIViewController {
         
         /* 구글로그인 연동 컨트롤러 연결을해당 현재 컨트롤로 값으로 부여 */
         GIDSignIn.sharedInstance()?.presentingViewController = self
+        
+        
+        /* 페이스북 로그인 버튼 연동 */
+        fackbookLoginBtn.delegate = self
         
         /* Auth.auth().addStateDidChangeListener는 로그인 상태가 변할때 동작하는 부분 */
         Auth.auth().addStateDidChangeListener { (auth, user) in
@@ -87,6 +115,8 @@ class ViewController: UIViewController {
     @IBAction func googleLogin(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn() // 구글 로그인 불러오기
     }
+    
+
     
     
     /* 로그인 실패시 알람창 띄우는 함수 */

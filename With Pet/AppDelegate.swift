@@ -9,12 +9,15 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKLoginKit
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
 
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -30,18 +33,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         
-        sleep(3) // 앱 시작시 스플래시 화면 길게 보여주기 위해 sleep 적용.
+        // 페이스북 로그인 연동 설정
+        ApplicationDelegate.shared.application( application, didFinishLaunchingWithOptions: launchOptions )
+        
+        //sleep(3) // 앱 시작시 스플래시 화면 길게 보여주기 위해 sleep 적용.
         return true
     }
     
+
+  
+        
+    
+    
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
-      -> Bool {    GIDSignIn.sharedInstance().handle(url)
-      return true
+      -> Bool {
+                let google = GIDSignIn.sharedInstance().handle(url)
+        
+                let facebook = ApplicationDelegate.shared.application( application, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation] )
+        
+        
+        
+      return google || facebook
     }
 
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {    return GIDSignIn.sharedInstance().handle(url)
-    return true
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        let google = GIDSignIn.sharedInstance().handle(url)
+        
+        
+       let facebook =  ApplicationDelegate.shared.application( application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+         
+        
+    return google || facebook
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
