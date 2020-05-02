@@ -24,8 +24,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.401541281597-ilk6qf3d15n2a8nsca6bm2daoomlh4nd</string>
-                <string>fb249889093022610</string>
-           
+				<string>fb249889093022610</string>
 			</array>
 		</dict>
 	</array>
@@ -37,6 +36,10 @@
 	<string>test</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>test</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>사용중에만 위치정보를 이용합니다.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>항상 위지정보를 이용합니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -77,20 +80,27 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-
-    <key>FacebookAppID</key>
-    <string>249889093022610</string>
-    <key>FacebookDisplayName</key>
-    <string>WithPet</string>
-    
-
-    <key>LSApplicationQueriesSchemes</key> <array> <string>fbapi</string> <string>fbapi20130214</string> <string>fbapi20130410</string> <string>fbapi20130702</string> <string>fbapi20131010</string> <string>fbapi20131219</string> <string>fbapi20140410</string> <string>fbapi20140116</string> <string>fbapi20150313</string> <string>fbapi20150629</string> <string>fbapi20160328</string> <string>fbauth</string> <string>fb-messenger-share-api</string> <string>fbauth2</string> <string>fbshareextension</string> </array>
-    
-    
-    
-    
-    
-    
-   </dict>
+	<key>FacebookAppID</key>
+	<string>249889093022610</string>
+	<key>FacebookDisplayName</key>
+	<string>WithPet</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fbapi20130214</string>
+		<string>fbapi20130410</string>
+		<string>fbapi20130702</string>
+		<string>fbapi20131010</string>
+		<string>fbapi20131219</string>
+		<string>fbapi20140410</string>
+		<string>fbapi20140116</string>
+		<string>fbapi20150313</string>
+		<string>fbapi20150629</string>
+		<string>fbapi20160328</string>
+		<string>fbauth</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+</dict>
 </plist>
