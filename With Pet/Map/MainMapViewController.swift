@@ -41,14 +41,19 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
         send1 = 37.548947
         send2 = 126.913521
      
+        
+        
+        /* setAnnotation 추가로 핀 여러개 추가 마지막 부분이 중심부 */
+        setAnnotation(latitude: 37.548571, longitude: 126.913822, delta: 0.01, title: "대학교", subtitle: "서울특별시 관악구 관악로 1")
+         setAnnotation(latitude: 37.551727, longitude: 126.904438, delta: 0.01, title: "장수램프", subtitle: "서울특별시 관악구 관악로 1")
         setAnnotation(latitude: send1, longitude: send2, delta: 0.01, title: "서울대학교", subtitle: "서울특별시 관악구 관악로 1")
-
                       self.LocationInfo1.text = "보고 계신 위치"
 
                       self.LocationInfo2.text = "서울대학교"
-        
-        
     }
+    
+
+    
     
     @IBAction func gangnam(_ sender: Any) {
        send1 =  37.497934
@@ -164,6 +169,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
             annotation.subtitle = strSubtitle
 
             myMap.addAnnotation(annotation)
+            
 
         }
 
