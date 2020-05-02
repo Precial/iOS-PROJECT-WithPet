@@ -44,85 +44,14 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func mapo(_ sender: Any) {
-        send1 = 37.548947
-        send2 = 126.913521
-     
-        db = Firestore.firestore()
-        
-        db.collection("cafe").getDocuments(){ (querySnapshot, err) in
-                   if let err = err {
-                   print("Error getting documents: \(err)")
-                   } else {
-                       
-                    let cnt = querySnapshot!.documents.count
-                    print("카페 개수 :::: \(cnt)")
-                    self.selectPlaceCnt = cnt
-                   
-                    for document in querySnapshot!.documents {
-                        
-                        let info = document.data()
-                         print("카페 정보 :::: \(info)")
-                        
-                        guard let name = info["name"] else {return}
-                        guard let loc1 = info["loc1"] else {return}
-                         guard let loc2 = info["loc2"] else {return}
-                         guard let which = info["which"] else {return}
-                        
-                        print(name)
-                        print(loc1)
-                        print(loc2)
-                        print(which)
-                        print("----------------")
-                        
-                        let tempName = "\(name)"
-                        let tempWhich = "\(which)"
-                        var tempLoc1 = 1.0
-                        var tempLoc2 = 1.0
-                        
-                        tempLoc1 = loc1 as! Double
-                        tempLoc2 = loc2 as! Double
-                        
-                        
-                        self.setAnnotation(latitude: tempLoc1, longitude: tempLoc2, delta: 0.01, title: tempName, subtitle: tempWhich)
-                        
-                        
-                    }
-                    
-             
-                                                 
-                       
-     
-                        }
-                   }
-        
-        
-        
-        
-        
-        
-        
-        
-        /* setAnnotation 추가로 핀 여러개 추가 마지막 부분이 중심부 */
-//        setAnnotation(latitude: 37.548571, longitude: 126.913822, delta: 0.01, title: "대학교", subtitle: "서울특별시 관악구 관악로 1")
-//         setAnnotation(latitude: 37.551727, longitude: 126.904438, delta: 0.01, title: "장수램프", subtitle: "서울특별시 관악구 관악로 1")
-//        setAnnotation(latitude: send1, longitude: send2, delta: 0.01, title: "서울대학교", subtitle: "서울특별시 관악구 관악로 1")
-                      self.LocationInfo1.text = "보고 계신 위치"
-
-                      self.LocationInfo2.text = "\(selectPlaceCnt) 곳"
+        placeLoad(select: "cafe_mapo")
     }
     
 
     
     
     @IBAction func gangnam(_ sender: Any) {
-       send1 =  37.497934
-        send2 = 127.027549
-        
-                setAnnotation(latitude: send1, longitude: send2, delta: 0.01, title: "서울대학교", subtitle: "서울특별시 관악구 관악로 1")
-
-                     self.LocationInfo1.text = "보고 계신 위치"
-
-                     self.LocationInfo2.text = "우리집"
+        placeLoad(select: "cafe_gangnam")
      
     }
     
@@ -299,6 +228,60 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
 
         }
+    
+    func placeLoad(select:String){
+        db = Firestore.firestore()
+                
+                db.collection(select).getDocuments(){ (querySnapshot, err) in
+                           if let err = err {
+                           print("Error getting documents: \(err)")
+                           } else {
+                               
+                            let cnt = querySnapshot!.documents.count
+                            print("카페 개수 :::: \(cnt)")
+                            self.selectPlaceCnt = cnt
+                           
+                            for document in querySnapshot!.documents {
+                                
+                                let info = document.data()
+                                 print("카페 정보 :::: \(info)")
+                                
+                                guard let name = info["name"] else {return}
+                                guard let loc1 = info["loc1"] else {return}
+                                 guard let loc2 = info["loc2"] else {return}
+                                 guard let which = info["which"] else {return}
+                                
+                                print(name)
+                                print(loc1)
+                                print(loc2)
+                                print(which)
+                                print("----------------")
+                                
+                                let tempName = "\(name)"
+                                let tempWhich = "\(which)"
+                                var tempLoc1 = 1.0
+                                var tempLoc2 = 1.0
+                                
+                                tempLoc1 = loc1 as! Double
+                                tempLoc2 = loc2 as! Double
+                                
+                                
+                                self.setAnnotation(latitude: tempLoc1, longitude: tempLoc2, delta: 0.01, title: tempName, subtitle: tempWhich)
+                                
+                                
+                            }
+                                }
+                           }
+                
+                /* setAnnotation 추가로 핀 여러개 추가 마지막 부분이 중심부 */
+        //        setAnnotation(latitude: 37.548571, longitude: 126.913822, delta: 0.01, title: "대학교", subtitle: "서울특별시 관악구 관악로 1")
+        //         setAnnotation(latitude: 37.551727, longitude: 126.904438, delta: 0.01, title: "장수램프", subtitle: "서울특별시 관악구 관악로 1")
+        //        setAnnotation(latitude: send1, longitude: send2, delta: 0.01, title: "서울대학교", subtitle: "서울특별시 관악구 관악로 1")
+                              self.LocationInfo1.text = "보고 계신 위치"
+
+                              self.LocationInfo2.text = "\(selectPlaceCnt) 곳"
+        
+    }
 
       
 
