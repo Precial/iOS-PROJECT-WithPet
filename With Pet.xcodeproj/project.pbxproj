@@ -21,6 +21,8 @@
 		0B4DE73F2436BB69002AE08D /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE73E2436BB69002AE08D /* Content.swift */; };
 		0B4DE7412436BE72002AE08D /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE7402436BE72002AE08D /* ContentCollectionViewCell.swift */; };
 		0B4DE7452436BF68002AE08D /* ContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4DE7442436BF68002AE08D /* ContentCollectionViewController.swift */; };
+		0B5A2F0B245D00300063AF9E /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5A2F0A245D00300063AF9E /* MainMapViewController.swift */; };
+		0B5A2F0D245D13DC0063AF9E /* MapSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5A2F0C245D13DC0063AF9E /* MapSelectViewController.swift */; };
 		0B6C7A962434B14E00FC2E45 /* PwResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C7A952434B14E00FC2E45 /* PwResetViewController.swift */; };
 		0BAAA02C2438378E0074327C /* ContentCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAAA02B2438378E0074327C /* ContentCollectionHeaderView.swift */; };
 		0BAAA0322438588C0074327C /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAAA0312438588C0074327C /* ContentViewModel.swift */; };
@@ -46,6 +48,8 @@
 		0B4DE73E2436BB69002AE08D /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		0B4DE7402436BE72002AE08D /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0B4DE7442436BF68002AE08D /* ContentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewController.swift; sourceTree = "<group>"; };
+		0B5A2F0A245D00300063AF9E /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
+		0B5A2F0C245D13DC0063AF9E /* MapSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSelectViewController.swift; sourceTree = "<group>"; };
 		0B6C7A952434B14E00FC2E45 /* PwResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwResetViewController.swift; sourceTree = "<group>"; };
 		0BAAA02B2438378E0074327C /* ContentCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionHeaderView.swift; sourceTree = "<group>"; };
 		0BAAA0312438588C0074327C /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				0B3BD228245AB29300B687F9 /* MapViewController.swift */,
+				0B5A2F0C245D13DC0063AF9E /* MapSelectViewController.swift */,
+				0B5A2F0A245D00300063AF9E /* MainMapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 				0B3CC380243C39C400372555 /* userInformaitionViewController.swift in Sources */,
 				0BAAA034243861D60074327C /* DetailViewController.swift in Sources */,
 				0B4DE73F2436BB69002AE08D /* Content.swift in Sources */,
+				0B5A2F0B245D00300063AF9E /* MainMapViewController.swift in Sources */,
 				0B4DE7412436BE72002AE08D /* ContentCollectionViewCell.swift in Sources */,
 				0B20ED36243485F700922E60 /* CreateUserViewController.swift in Sources */,
 				0B20ED3824348A8E00922E60 /* MainViewController.swift in Sources */,
@@ -302,6 +309,7 @@
 				0B4DE7452436BF68002AE08D /* ContentCollectionViewController.swift in Sources */,
 				0B6C7A962434B14E00FC2E45 /* PwResetViewController.swift in Sources */,
 				0B3BD229245AB29300B687F9 /* MapViewController.swift in Sources */,
+				0B5A2F0D245D13DC0063AF9E /* MapSelectViewController.swift in Sources */,
 				0BAAA02C2438378E0074327C /* ContentCollectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

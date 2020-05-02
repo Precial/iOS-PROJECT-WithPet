@@ -1,15 +1,17 @@
 //
-//  MapViewController.swift
+//  MapSelectViewController.swift
 //  With Pet
 //
-//  Created by 장성구 on 2020/04/30.
+//  Created by 장성구 on 2020/05/02.
 //  Copyright © 2020 com.sg. All rights reserved.
 //
 
 import UIKit
 import GoogleMaps
-class MapViewController:UIViewController, CLLocationManagerDelegate {
+class MapSelectViewController: UIViewController, CLLocationManagerDelegate {
     
+    var loc1=1.0
+    var loc2=2.0
     
 
     var mapView: GMSMapView!
@@ -72,7 +74,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate {
         
         
 // 현재 위치
-        let latitude = coordinate.latitude; let longitude = coordinate.longitude // 현재 위치
+        let latitude = loc1; let longitude = loc2 // 현재 위치
         
      //   let latitude = 37.548947;  let longitude = 126.913521 // 합정
     //  let latitude = 37.497934;  let longitude = 127.027549 // 강남
