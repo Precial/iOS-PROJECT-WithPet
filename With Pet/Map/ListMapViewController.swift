@@ -16,8 +16,30 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
     let nameList = ["펫고펫", "오늘의 펫", "도그앤캣","펫스타그램","펫킷"]
     let adressList = ["서울시 강남구","서울시 서초구", "서울시 관악구","서울시 마포구","서울시 구로구"]
  
+    var nameIn : [String] = []
+    var adressIn : [String] = []
     
+    
+    var name: String?
+    var adress: String?
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // DetailViewController 데이터 줄꺼에요
+        if segue.identifier == "showDetail" {
+            let vc = segue.destination as? CafeDetailViewController
+            if let index = sender as? Int {
 
+                vc?.name = nameIn[index]
+                vc?.adress = adressIn[index]
+            }
+        }
+    }
+    
+    
+    
+    
+    
     
     var db:Firestore!
     
@@ -27,6 +49,9 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         
         print("-----넘어옴------")
+        print(nameIn)
+        print(adressIn)
+        
         print(respone)
         cafeLoad(input: respone)
     }
@@ -63,10 +88,14 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
                                        print(which)
                                        print("----------------")
                                        
-            
+                                //    self.nameIn.append("\(name)")
+                                //    self.adressIn.append("\(which)")
                                        
                                        
                                    }
+                              //      print("*********\(self.nameIn)")
+                               //     print("*********\(self.adressIn)")
+                                    
                                        }
                                   }
 
@@ -76,7 +105,7 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nameList.count
+        return nameIn.count
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,16 +114,17 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }
         
-        let img = UIImage(named: "\(nameList[indexPath.row]).jpg")
+       // let img = UIImage(named: "\(nameList[indexPath.row]).jpg")
         //cell.imageView.image = img
-        cell.nameLabel.text = nameList[indexPath.row]
-        cell.adressLabel.text = adressList[indexPath.row]
+        cell.nameLabel.text = nameIn[indexPath.row]
+        cell.adressLabel.text = adressIn[indexPath.row]
         return cell
      }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("--> \(indexPath.row)")
+        performSegue(withIdentifier: "showDetail", sender: indexPath.item)
     }
 
 }

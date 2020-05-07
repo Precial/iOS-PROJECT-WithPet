@@ -26,6 +26,12 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     var sendLo = ""
     
     
+    //  조회해서 배열에 저장해서 실어 보내기 위해
+    var nameIn : [String] = []
+    var adressIn : [String] = []
+    
+    
+    
     //  let latitude = 37.548947;  let longitude = 126.913521 // 합정
     //  let latitude = 37.497934;  let longitude = 127.027549 // 강남
     var send1=1.0
@@ -48,14 +54,18 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
         guard let rvc = self.storyboard?.instantiateViewController(withIdentifier:"showCafe") as? ListMapViewController else {
             return
         }
-        rvc.respone = self.sendLo // 약관동의 페이지의 사용자가 누른 약관동의 코드를 전송
-        self.navigationController?.pushViewController(rvc, animated: true) // 약관내용보기로 이동
+        rvc.respone = self.sendLo
+        rvc.nameIn = self.nameIn
+        rvc.adressIn = self.adressIn
+        self.navigationController?.pushViewController(rvc, animated: true)
 
     }
     
     
     
     @IBAction func mapo(_ sender: Any) {
+        self.nameIn = [] // 누를때 마다 값이 저장되어 초기화 하여 한번만 저장 되게
+        self.adressIn = []
         placeLoad(select: "cafe_mapo")
         self.sendLo = "cafe_mapo"
     }
@@ -64,6 +74,8 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func gangnam(_ sender: Any) {
+        self.nameIn = [] // 누를때 마다 값이 저장되어 초기화 하여 한번만 저장 되게
+        self.adressIn = []
         placeLoad(select: "cafe_gangnam")
         self.sendLo = "cafe_gangnam"
      
@@ -270,6 +282,11 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
                                 print(loc2)
                                 print(which)
                                 print("----------------")
+                                
+                                
+                                self.nameIn.append("\(name)")
+                                self.adressIn.append("\(which)")
+                                
                                 
                                 let tempName = "\(name)"
                                 let tempWhich = "\(which)"

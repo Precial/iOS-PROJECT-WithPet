@@ -430,7 +430,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="ufn-Gv-jzd" customClass="ListCell" customModule="With_Pet" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="ufn-Gv-jzd" customClass="ListCell" customModule="With_Pet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ufn-Gv-jzd" id="JXA-rf-wyD">
@@ -485,10 +485,75 @@
                         <viewLayoutGuide key="safeArea" id="e7m-JS-rm9"/>
                     </view>
                     <navigationItem key="navigationItem" title="카페 리스트" id="vH4-ug-Ftx"/>
+                    <connections>
+                        <segue destination="9dB-FD-SpH" kind="presentation" identifier="showDetail" id="ByN-OT-L0Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHN-Wc-uXx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4566.666666666667" y="859.82142857142856"/>
+        </scene>
+        <!--Cafe Detail View Controller-->
+        <scene sceneID="vly-Q5-hFa">
+            <objects>
+                <viewController id="9dB-FD-SpH" customClass="CafeDetailViewController" customModule="With_Pet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="the-uy-mDM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6iJ-ID-WPs">
+                                <rect key="frame" x="50" y="100" width="314" height="448.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6iJ-ID-WPs" secondAttribute="height" multiplier="7:10" id="YRu-dT-Zyn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKw-e0-vAs">
+                                <rect key="frame" x="171.5" y="588" width="71" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10P-7h-sER">
+                                <rect key="frame" x="344" y="19" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="PJz-jc-Beq"/>
+                                    <constraint firstAttribute="height" constant="50" id="eEU-MF-EHD"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="close_ic"/>
+                                <connections>
+                                    <action selector="close:" destination="9dB-FD-SpH" eventType="touchUpInside" id="Ge8-Ii-Okb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCM-bR-H3q">
+                                <rect key="frame" x="171.5" y="632" width="71" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="10P-7h-sER" secondAttribute="trailing" id="0y5-49-Ngc"/>
+                            <constraint firstItem="6iJ-ID-WPs" firstAttribute="leading" secondItem="fRi-9c-7FK" secondAttribute="leading" constant="50" id="4Ku-YO-u4u"/>
+                            <constraint firstItem="6iJ-ID-WPs" firstAttribute="top" secondItem="fRi-9c-7FK" secondAttribute="top" constant="100" id="9XE-Sb-wG0"/>
+                            <constraint firstItem="sKw-e0-vAs" firstAttribute="top" secondItem="6iJ-ID-WPs" secondAttribute="bottom" constant="39.5" id="Jb1-cp-Kbz"/>
+                            <constraint firstItem="10P-7h-sER" firstAttribute="top" secondItem="the-uy-mDM" secondAttribute="topMargin" constant="19" id="YG6-Tp-Hmj"/>
+                            <constraint firstItem="WCM-bR-H3q" firstAttribute="top" secondItem="sKw-e0-vAs" secondAttribute="bottom" constant="8" id="aUJ-83-St6"/>
+                            <constraint firstItem="sKw-e0-vAs" firstAttribute="centerX" secondItem="6iJ-ID-WPs" secondAttribute="centerX" id="dxT-iZ-Dkn"/>
+                            <constraint firstItem="6iJ-ID-WPs" firstAttribute="centerX" secondItem="fRi-9c-7FK" secondAttribute="centerX" id="j8P-Oa-GeR"/>
+                            <constraint firstItem="WCM-bR-H3q" firstAttribute="centerX" secondItem="sKw-e0-vAs" secondAttribute="centerX" id="wWK-jM-Xh1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fRi-9c-7FK"/>
+                    </view>
+                    <connections>
+                        <outlet property="adressLabel" destination="WCM-bR-H3q" id="0gd-XJ-8oC"/>
+                        <outlet property="imgView" destination="6iJ-ID-WPs" id="UZd-7L-nqU"/>
+                        <outlet property="nameLabel" destination="sKw-e0-vAs" id="UD9-L8-Rpq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lpq-a2-age" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5350.7246376811599" y="859.82142857142856"/>
         </scene>
         <!--User Informaition View Controller-->
         <scene sceneID="vjf-3F-Lna">
@@ -915,6 +980,7 @@
         <image name="cat" width="564" height="1001"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="close_ic" width="128" height="128"/>
         <image name="eyedropper.full" catalog="system" width="128" height="116"/>
         <image name="facebook" width="325" height="325"/>
         <image name="folder.fill" catalog="system" width="128" height="95"/>
