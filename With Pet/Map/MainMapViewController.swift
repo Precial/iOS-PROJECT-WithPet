@@ -23,6 +23,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     
     
     var db:Firestore!
+    var sendLo = ""
     
     
     //  let latitude = 37.548947;  let longitude = 126.913521 // 합정
@@ -42,9 +43,21 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    @IBAction func nextDetail(_ sender: Any) {
+
+        guard let rvc = self.storyboard?.instantiateViewController(withIdentifier:"showCafe") as? ListMapViewController else {
+            return
+        }
+        rvc.respone = self.sendLo // 약관동의 페이지의 사용자가 누른 약관동의 코드를 전송
+        self.navigationController?.pushViewController(rvc, animated: true) // 약관내용보기로 이동
+
+    }
+    
+    
     
     @IBAction func mapo(_ sender: Any) {
         placeLoad(select: "cafe_mapo")
+        self.sendLo = "cafe_mapo"
     }
     
 
@@ -52,6 +65,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func gangnam(_ sender: Any) {
         placeLoad(select: "cafe_gangnam")
+        self.sendLo = "cafe_gangnam"
      
     }
     
