@@ -11,7 +11,12 @@ import Firebase
 import FirebaseFirestore
 
 
-class ListMapViewController: UIViewController {
+class ListMapViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let nameList = ["펫고펫", "오늘의 펫", "도그앤캣","펫스타그램","펫킷"]
+    let adressList = ["서울시 강남구","서울시 서초구", "서울시 관악구","서울시 마포구","서울시 구로구"]
+ 
+    
 
     
     var db:Firestore!
@@ -28,8 +33,6 @@ class ListMapViewController: UIViewController {
     
 
  
-    
-    
     func cafeLoad(input:String){
         db = Firestore.firestore()
     
@@ -66,9 +69,44 @@ class ListMapViewController: UIViewController {
                                    }
                                        }
                                   }
-        
-        
-        
-        
+
     }
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return nameList.count
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
+            return UITableViewCell()
+            
+        }
+        
+        let img = UIImage(named: "\(nameList[indexPath.row]).jpg")
+        //cell.imageView.image = img
+        cell.nameLabel.text = nameList[indexPath.row]
+        cell.adressLabel.text = adressList[indexPath.row]
+        return cell
+     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        print("--> \(indexPath.row)")
+    }
+
 }
+
+
+class ListCell: UITableViewCell {
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var adressLabel: UILabel!
+    
+     
+     
+     
+     
+ }
