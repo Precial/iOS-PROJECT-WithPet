@@ -29,6 +29,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     //  조회해서 배열에 저장해서 실어 보내기 위해
     var nameIn : [String] = []
     var adressIn : [String] = []
+    var imgNameIn : [String] = []
     
     
     
@@ -57,6 +58,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
         rvc.respone = self.sendLo
         rvc.nameIn = self.nameIn
         rvc.adressIn = self.adressIn
+        rvc.imgNameIn = self.imgNameIn
         self.navigationController?.pushViewController(rvc, animated: true)
 
     }
@@ -66,6 +68,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func mapo(_ sender: Any) {
         self.nameIn = [] // 누를때 마다 값이 저장되어 초기화 하여 한번만 저장 되게
         self.adressIn = []
+        self.imgNameIn = []
         placeLoad(select: "cafe_mapo")
         self.sendLo = "cafe_mapo"
     }
@@ -76,6 +79,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func gangnam(_ sender: Any) {
         self.nameIn = [] // 누를때 마다 값이 저장되어 초기화 하여 한번만 저장 되게
         self.adressIn = []
+        self.imgNameIn = []
         placeLoad(select: "cafe_gangnam")
         self.sendLo = "cafe_gangnam"
      
@@ -276,16 +280,20 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
                                 guard let loc1 = info["loc1"] else {return}
                                  guard let loc2 = info["loc2"] else {return}
                                  guard let which = info["which"] else {return}
+                                guard let imgName = info["imgName"] else {return}
+                                
                                 
                                 print(name)
                                 print(loc1)
                                 print(loc2)
                                 print(which)
+                                print(imgName)
                                 print("----------------")
                                 
                                 
                                 self.nameIn.append("\(name)")
                                 self.adressIn.append("\(which)")
+                                self.imgNameIn.append("\(imgName)")
                                 
                                 
                                 let tempName = "\(name)"

@@ -19,6 +19,7 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
  
     var nameIn : [String] = []
     var adressIn : [String] = []
+    var imgNameIn : [String] = []
     
     
     var name: String?
@@ -116,7 +117,7 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
                                        guard let loc1 = info["loc1"] else {return}
                                         guard let loc2 = info["loc2"] else {return}
                                         guard let which = info["which"] else {return}
-                                       
+                                        
                                        print(name)
                                        print(loc1)
                                        print(loc2)
@@ -124,7 +125,7 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
                                        print("----------------")
                                     
                                     let tempName = "\(name)"
-                                                          let tempWhich = "\(which)"
+                                                            let tempWhich = "\(which)"
                                                           var tempLoc1 = 1.0
                                                           var tempLoc2 = 1.0
                                                           
@@ -162,6 +163,31 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }
         
+        
+        
+                /* 이미지 불러와서 매핑 후 배열에 저장 */
+        print("!!!!!! 테스트 값은 \(self.imgNameIn[indexPath.row])")
+                // Create a reference to the file you want to download
+        let islandRef = Storage.storage().reference().child("Cafe_Image").child(respone).child("\(imgNameIn[indexPath.row]).jpg")
+        
+        
+              
+        
+                // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                if let error = error {
+                // Uh-oh, an error occurred!
+                print("error")
+                } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+        
+        
+                    cell.imgView.image = image
+                    }
+                }
+        
+    
        // let img = UIImage(named: "\(nameList[indexPath.row]).jpg")
         //cell.imageView.image = img
         cell.nameLabel.text = nameIn[indexPath.row]
