@@ -24,6 +24,9 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var name: String?
     var adress: String?
+    var imgName: String?
+    var detailRespone: String?
+    
     
     // 맵 키트 연결
     @IBOutlet weak var myMap: MKMapView!
@@ -39,7 +42,9 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
 
                 vc?.name = nameIn[index]
                 vc?.adress = adressIn[index]
-            }
+                vc?.imgName = imgNameIn[index]
+                vc?.detailRespone = respone
+                }
         }
     }
     
