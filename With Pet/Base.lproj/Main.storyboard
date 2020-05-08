@@ -486,6 +486,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="카페 리스트" id="vH4-ug-Ftx"/>
                     <connections>
+                        <outlet property="myMap" destination="IDe-uX-Wdu" id="K3k-N0-n74"/>
                         <segue destination="9dB-FD-SpH" kind="presentation" identifier="showDetail" id="ByN-OT-L0Q"/>
                     </connections>
                 </viewController>
