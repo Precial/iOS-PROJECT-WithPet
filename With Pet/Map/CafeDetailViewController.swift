@@ -20,6 +20,7 @@ class CafeDetailViewController: UIViewController {
     var adress: String?
     var imgName: String?
     var detailRespone: String?
+    var UID: String?
 
     var ResponeName: String = ""
     
@@ -34,6 +35,12 @@ class CafeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ResponeName = self.detailRespone!
+        
+        
+       
+        print("~~~ 해당 값은: \(UID)")
+        
+        
         updateUI()
          
     }

@@ -30,6 +30,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     var nameIn : [String] = []
     var adressIn : [String] = []
     var imgNameIn : [String] = []
+    var uidIn: [String] = []
     
     
     
@@ -59,6 +60,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
         rvc.nameIn = self.nameIn
         rvc.adressIn = self.adressIn
         rvc.imgNameIn = self.imgNameIn
+        rvc.uidIn = self.uidIn
         self.navigationController?.pushViewController(rvc, animated: true)
 
     }
@@ -69,6 +71,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
         self.nameIn = [] // 누를때 마다 값이 저장되어 초기화 하여 한번만 저장 되게
         self.adressIn = []
         self.imgNameIn = []
+        self.uidIn = []
         placeLoad(select: "cafe_mapo")
         self.sendLo = "cafe_mapo"
     }
@@ -80,6 +83,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
         self.nameIn = [] // 누를때 마다 값이 저장되어 초기화 하여 한번만 저장 되게
         self.adressIn = []
         self.imgNameIn = []
+        self.uidIn = []
         placeLoad(select: "cafe_gangnam")
         self.sendLo = "cafe_gangnam"
      
@@ -281,7 +285,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
                                  guard let loc2 = info["loc2"] else {return}
                                  guard let which = info["which"] else {return}
                                 guard let imgName = info["imgName"] else {return}
-                                
+                                guard let UID = info["UID"] else {return}
                                 
                                 print(name)
                                 print(loc1)
@@ -294,6 +298,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
                                 self.nameIn.append("\(name)")
                                 self.adressIn.append("\(which)")
                                 self.imgNameIn.append("\(imgName)")
+                                self.uidIn.append("\(UID)")
                                 
                                 
                                 let tempName = "\(name)"

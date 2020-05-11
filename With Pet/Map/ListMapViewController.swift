@@ -20,12 +20,14 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
     var nameIn : [String] = []
     var adressIn : [String] = []
     var imgNameIn : [String] = []
+    var uidIn: [String] = []
     
     
     var name: String?
     var adress: String?
     var imgName: String?
     var detailRespone: String?
+    var UID: String?
     
     
     // 맵 키트 연결
@@ -44,6 +46,8 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
                 vc?.adress = adressIn[index]
                 vc?.imgName = imgNameIn[index]
                 vc?.detailRespone = respone
+                vc?.UID = uidIn[index]
+                
                 }
         }
     }
@@ -63,6 +67,9 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
         print("-----넘어옴------")
         print(nameIn)
         print(adressIn)
+        
+        print("~~~ UID 값은: \(uidIn)")
+        
         
         print(respone)
         cafeLoad(input: respone)
@@ -123,11 +130,16 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
                                         guard let loc2 = info["loc2"] else {return}
                                         guard let which = info["which"] else {return}
                                         
+                           
+                                    
                                        print(name)
                                        print(loc1)
                                        print(loc2)
                                        print(which)
                                        print("----------------")
+                                        
+                          
+                                    
                                     
                                     let tempName = "\(name)"
                                                             let tempWhich = "\(which)"
