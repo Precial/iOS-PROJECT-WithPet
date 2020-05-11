@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseCore
 import FirebaseFirestore
 class CafeDetailViewController: UIViewController {
     
@@ -29,6 +31,13 @@ class CafeDetailViewController: UIViewController {
     var btnStateMessage=""
     
     
+     var db: Firestore!
+     var handle: AuthStateDidChangeListenerHandle?
+    
+    
+     var nowUserKey = ""
+    
+    
     // pick 버튼 연결
     @IBOutlet weak var pickBtn: UIButton!
     
@@ -37,13 +46,95 @@ class CafeDetailViewController: UIViewController {
         ResponeName = self.detailRespone!
         
         
+       // UID 가져오기 확인
+        print("해당 값은: \(UID)")
+        
+        
+        
+        /* 현재 로그인한 유저 확인 */
+    
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        
+        
+        // 현재 로그인한 유저 확인
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+        if let user = user {
+                    
+                     guard let email = user.email else {return }
+                     self.nowUserKey = email
+                     print("~~~ 값은 : \(email)")
+               }
+              }
+        
        
-        print("~~~ 해당 값은: \(UID)")
+        db.collection("users").getDocuments() { (querySnapshot, err) in
+                       if let err = err {
+                           print("Error getting documents: \(err)")
+                       } else {
+                           for document in querySnapshot!.documents {
+                              
+                              if self.nowUserKey == document.documentID {
+                               print("현재 로그인한 사용자는 \(document.documentID) => \(document.data())")
+                               
+                                   let info = document.data()
+                                  
+                                  guard let ID = info["ID"] else {return}
+                                  guard let Password = info["Password"] else {return}
+                                  guard let Name = info["Name"] else {return}
+                                  
+                                  
+                         
+                                    print(ID)
+                                    print(Password)
+                                    print(Name)
+                                
+                                
+                            }
         
-        
-        updateUI()
+                        }
+            }
+       
          
     }
+         updateUI()
+    }
+    
+    
+    /* UID  저장 */
+    private func adduserData() {
+//        db.collection("users").document(self.nowUserKey).setData([
+//                   "testUID": self.UID,
+//
+//                 ]) { err in
+//                     if let err = err {
+//                         print("Error writing document: \(err)")
+//                     } else {
+//                         print("Document successfully written!")
+//                     }
+//                 }
+        
+        let washingtonRef = db.collection("users").document(self.nowUserKey)
+
+        // Set the "capital" field of the city 'DC'
+        washingtonRef.updateData([
+            "testUID": self.UID
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+        
+        
+        
+        
+        
+       }
+    
+    
     
     
     func updateUI() {
@@ -112,6 +203,7 @@ class CafeDetailViewController: UIViewController {
                 UIAlertAction in
                     
                     self.pickBtn.isSelected = !self.pickBtn.isSelected // 버튼 상태 변화
+                    self.adduserData() // UID 서버로 저장
                 
           })
         
@@ -133,3 +225,4 @@ class CafeDetailViewController: UIViewController {
  
 
 }
+
