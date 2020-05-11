@@ -33,7 +33,6 @@ class CafeDetailViewController: UIViewController {
     // 버튼 상태에 따른 메시지 저장
     var btnStateMessage=""
     
-    
      var db: Firestore!
      var handle: AuthStateDidChangeListenerHandle?
     
@@ -90,13 +89,10 @@ class CafeDetailViewController: UIViewController {
                                   guard let Password = info["Password"] else {return}
                                   guard let Name = info["Name"] else {return}
                                   
-                                  
-                         
                                     print(ID)
                                     print(Password)
                                     print(Name)
-                                
-                                
+                            
                             }
         
                         }
@@ -127,6 +123,8 @@ class CafeDetailViewController: UIViewController {
                      }
                  }
         
+        
+        
  
         
         
@@ -144,12 +142,14 @@ class CafeDetailViewController: UIViewController {
 //            }
 //        }
         
-        
-        
-        
-        
        }
     
+    
+    /* UID  삭제 */
+       private func deleteuserData() {
+        db.collection("users").document("\(self.nowUserKey)/selectedCafe/List\(self.realUID)").delete()
+    
+    }
     
     
     
@@ -214,7 +214,14 @@ class CafeDetailViewController: UIViewController {
                 UIAlertAction in
                     
                     self.pickBtn.isSelected = !self.pickBtn.isSelected // 버튼 상태 변화
-                    self.adduserData() // UID 서버로 저장
+                    
+                    if self.pickBtn.isSelected {
+                        self.adduserData()
+                    } else {
+                         self.deleteuserData()
+                    }
+                    
+                
                 
           })
         
