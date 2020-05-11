@@ -23,7 +23,10 @@ class CafeDetailViewController: UIViewController {
     var imgName: String?
     var detailRespone: String?
     var UID: String?
-
+    var realUID: String = ""
+   
+    
+    
     var ResponeName: String = ""
     
     
@@ -45,9 +48,12 @@ class CafeDetailViewController: UIViewController {
         super.viewDidLoad()
         ResponeName = self.detailRespone!
         
-        
-       // UID 가져오기 확인
-        print("해당 값은: \(UID)")
+    
+        if let temp = UID {
+        print("해당 값은: \(temp)")
+            self.realUID = "\(temp)"
+            print("해당 값은: \(self.UID)")
+        }
         
         
         
@@ -104,29 +110,39 @@ class CafeDetailViewController: UIViewController {
     
     /* UID  저장 */
     private func adduserData() {
-//        db.collection("users").document(self.nowUserKey).setData([
-//                   "testUID": self.UID,
-//
-//                 ]) { err in
-//                     if let err = err {
-//                         print("Error writing document: \(err)")
-//                     } else {
-//                         print("Document successfully written!")
-//                     }
-//                 }
+        let uidPath = "\(self.nowUserKey)/selectedCafe\(self.realUID)"
+        print("~~~")
+        print("~~~ \(self.realUID)")
+      //  print("~~~ \(self.nowUserKey)/selectedCafe/\(self.UID)")
         
-        let washingtonRef = db.collection("users").document(self.nowUserKey)
+        
+        db.collection("users").document("\(self.nowUserKey)/selectedCafe/List\(self.realUID)").setData([
+                   "UID": self.realUID
 
-        // Set the "capital" field of the city 'DC'
-        washingtonRef.updateData([
-            "testUID": self.UID
-        ]) { err in
-            if let err = err {
-                print("Error updating document: \(err)")
-            } else {
-                print("Document successfully updated")
-            }
-        }
+                 ]) { err in
+                     if let err = err {
+                         print("Error writing document: \(err)")
+                     } else {
+                         print("Document successfully written!")
+                     }
+                 }
+        
+ 
+        
+        
+        /* 데이터 업데이트 */
+//        let washingtonRef = db.collection("users").document(self.nowUserKey)
+//
+//        // Set the "capital" field of the city 'DC'
+//        washingtonRef.updateData([
+//            "testUID": self.UID
+//        ]) { err in
+//            if let err = err {
+//                print("Error updating document: \(err)")
+//            } else {
+//                print("Document successfully updated")
+//            }
+//        }
         
         
         
@@ -161,11 +177,6 @@ class CafeDetailViewController: UIViewController {
                             self.imgView.image = image
                               }
                           }
-            
-            
-            
-            
-            
             
             //imgView.image = UIImage(named: "\(name).jpg")
             nameLabel.text = name

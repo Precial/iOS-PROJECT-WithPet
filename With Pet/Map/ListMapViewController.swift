@@ -28,6 +28,7 @@ class ListMapViewController: UIViewController, UITableViewDataSource, UITableVie
     var imgName: String?
     var detailRespone: String?
     var UID: String?
+    var stringUID: String = ""
     
     
     // 맵 키트 연결
