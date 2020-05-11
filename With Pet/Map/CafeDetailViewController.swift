@@ -23,6 +23,14 @@ class CafeDetailViewController: UIViewController {
 
     var ResponeName: String = ""
     
+    
+    // 버튼 상태에 따른 메시지 저장
+    var btnStateMessage=""
+    
+    
+    // pick 버튼 연결
+    @IBOutlet weak var pickBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ResponeName = self.detailRespone!
@@ -69,12 +77,51 @@ class CafeDetailViewController: UIViewController {
     
     
     
+    @IBAction func myPickBtn(_ sender: Any) {
+        
+        if pickBtn.isSelected {
+            self.btnStateMessage = "정말로 픽을 해제 하시겠습니까?"
+        } else {
+            self.btnStateMessage = "정말로 픽을 하시겠습니까?"
+        }
+        
+        
+        pickSelectMessage()
+        //pickBtn.isSelected = !pickBtn.isSelected // 클릭할때 마다 상태 값 변화
+    }
     
     
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         
     }
+    
+    
+    
+    /* pick 버튼 클릭시 안내 문구 표시 */
+     func pickSelectMessage(){
+        let alert = UIAlertController(title: "", message: self.btnStateMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default){
+                UIAlertAction in
+                    
+                    self.pickBtn.isSelected = !self.pickBtn.isSelected // 버튼 상태 변화
+                
+          })
+        
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel){
+
+          UIAlertAction in
+
+          })
+        
+        
+        
+         present(alert, animated: true, completion: nil)
+        }
+    
+    
+    
+    
     
  
 
