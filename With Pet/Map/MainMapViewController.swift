@@ -274,7 +274,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
                             let cnt = querySnapshot!.documents.count
                             print("카페 개수 :::: \(cnt)")
                             self.selectPlaceCnt = cnt
-                           
+                            self.LocationInfo2.text = "\(self.selectPlaceCnt) 곳"
                             for document in querySnapshot!.documents {
                                 
                                 let info = document.data()
