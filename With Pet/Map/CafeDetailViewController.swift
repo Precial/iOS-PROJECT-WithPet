@@ -32,12 +32,16 @@ class CafeDetailViewController: UIViewController {
     
     // 버튼 상태에 따른 메시지 저장
     var btnStateMessage=""
+    var btnState = false
     
      var db: Firestore!
      var handle: AuthStateDidChangeListenerHandle?
     
     
-     var nowUserKey = ""
+    var nowUserKey:String = ""
+    
+    var firstValue:String = ""
+    var secondValue:String = ""
     
     
     // pick 버튼 연결
@@ -51,7 +55,6 @@ class CafeDetailViewController: UIViewController {
         if let temp = UID {
         print("해당 값은: \(temp)")
             self.realUID = "\(temp)"
-            print("해당 값은: \(self.UID)")
         }
         
         
@@ -68,16 +71,19 @@ class CafeDetailViewController: UIViewController {
         if let user = user {
                     
                      guard let email = user.email else {return }
-                     self.nowUserKey = email
-                     print("~~~ 값은 : \(email)")
+                     self.nowUserKey = "\(email)"
+                     print("~~~ 값은 : \(self.nowUserKey)")
                }
               }
         
-       
+        
+        
+        
         db.collection("users").getDocuments() { (querySnapshot, err) in
                        if let err = err {
                            print("Error getting documents: \(err)")
                        } else {
+                 
                            for document in querySnapshot!.documents {
                               
                               if self.nowUserKey == document.documentID {
@@ -96,13 +102,105 @@ class CafeDetailViewController: UIViewController {
                             }
         
                         }
+                        
+                        
+                        // 정보 조회 하기
+                        print("log: ~~~~~~~~~~~~~start~~~~~~~~~~~~~~~~~~~~~")
+                               let tempUid = "\(self.realUID)"
+                               print("log: 카페 UID \(tempUid)")
+                        
+                        let splitArr = tempUid.split(separator: "/")
+                        let firstValue = splitArr.first
+                    
+                        
+                        if let firstTemp = firstValue {
+                               print("해당 값은: \(firstTemp)")
+                                   self.firstValue = "\(firstTemp)"
+                               }
+                        print("log: 문자열 자르기 1번 \(self.firstValue)")
+                        
+                        
+                        let secondValue = splitArr.last
+                        if let secondTemp = secondValue {
+                                              print("해당 값은: \(secondTemp)")
+                                                  self.secondValue = "\(secondTemp)"
+                                              }
+                                       print("log: 문자열 자르기 2번 \(self.secondValue)")
+                               
+                               
+                        let placeRef = self.db.collection("users").document("\(self.nowUserKey)").collection("selectedCafe").document("List").collection("\(self.firstValue)")
+                                  
+                               placeRef.getDocuments { (snapshot, error) in
+                                   guard let snapshot = snapshot else {
+                                       print("log: Error \(error!)")
+                                       return
+                                   }
+                                   for document in snapshot.documents {
+                                    
+                                    print("log: 조건 비교  \(self.secondValue) \(document.documentID)")
+                                    
+                                     if self.secondValue == document.documentID {
+                                    
+                                    print("log: 데이터 \(document.data())")
+                                    print("log: 문서아이디 \(document.documentID)")
+                                        self.btnState = true
+                                         print("log: 버튼 상태 확인 1번 \(self.btnState)")
+                                        self.pickBtn.isSelected = true
+                                    }
+                                    
+                                   }
+                               
+                               }
+                        
+                        
+                        
             }
        
          
     }
+        
+//        print("log: 버튼 상태 확인 2번 \(self.btnState)")
+//        if self.btnState {
+//            self.pickBtn.isSelected = true
+//        }
+        
+        
          updateUI()
+       // stateData()
     }
     
+    
+    
+    
+    
+    private func stateData() {
+        
+       //  let placeRef = db.collection("users").document("\(self.nowUserKey)").collection("selectedCafe").document("List").collection("\(self.realUID)")
+        
+        
+        
+        print("log: ~~~~~~~~~~~~~start~~~~~~~~~~~~~~~~~~~~~")
+       
+        print("log: 유저 이메일은 \(self.nowUserKey)")
+        let tempUid = "\(self.realUID)"
+        print("log: 카페 UID \(tempUid)")
+        
+        
+        let placeRef = db.collection("users").document("ggrty100@gmail.com").collection("selectedCafe").document("List").collection("cafe_gangnam")
+           
+        placeRef.getDocuments { (snapshot, error) in
+            guard let snapshot = snapshot else {
+                print("Error \(error!)")
+                return
+            }
+                
+
+            for document in snapshot.documents {
+                print("log: \(document.data())")
+            }
+        
+        }
+    }
     
     /* UID  저장 */
     private func adduserData() {
